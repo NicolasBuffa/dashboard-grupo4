@@ -1,3 +1,7 @@
+/* Fuentes */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap"); 
+
 html{
 box-sizing: border-box;
 }
@@ -6,54 +10,68 @@ box-sizing: border-box;
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family:var(--fuente_1)
 }
 
 :root{
-  --black_background: #2E2D2D;
   --white_letra: #FFFFFF;
   --gray_border: #E1E0E0;
+  /* agregaria borde mas oscuro para theme claro*/
   --gray_background: #757575;
-
+  --black_background: #2E2D2D;
+   --fuente_1: "Open Sans", sans-serif; /*momentaneo */
 }
 /* no anduvo */
 /* *, *:before, *:after{
   box-sizing: inherit;
 } */
 
-
-.App{
-  display: flex;  
-}
-
 .SideBar{
-   display: none;
   background-color: blue;
-  min-width: 296px;
+  width: 296px;
   height: 100vh;
+  position:fixed;
+  top:0;
+  left: -296px;
 }
 
 .MainArea{
-  /* display: flex; */
-  width: 100vw;
-  height: 100vh; 
-  background-color: var(--gris);
+  display: flex;
+  height: 100vh;
+  position: relative;
 }
 
-.menuButton{
+/*header*/
+.Header{
   position: fixed;
-  z-index: 9;
-  margin: 10px
+  height: 78px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white_letra);
+  padding: 20px;
+  align-items: center;
+  border-bottom: 2px var(--gray_border) solid;
 }
 
-.menuButton img{
-  fill:  white;
+.HeaderContent{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.menuButton{
+  display: flex;
+  margin: 0px 10px;
+}
+
+.menuButton span img{  
+  fill: white;
 }
 
 @import url(./pages/Home/Home.css);
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { }
-
 /* Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { ... } */
 /* Large devices (desktops, 992px and up)
@@ -62,11 +80,17 @@ box-sizing: border-box;
 
 
 @media (min-width: 1024px) {
-  
+  .App{
+    padding-left: 296px;
+  }
   .SideBar{
     display: block;
-    background-color: skyblue
+    background-color: skyblue;
+    left: 0px;
   } 
+  .Header{
+    width: calc(100vw - 296px);
+  }
   .menuButton{
     display: none;
   }

@@ -1,11 +1,9 @@
-import menu from '../assets/menu.svg'
 const SideBar = () => {
 
   return (
-    <>
-    <div className="SideBar">SideBar</div>
-    <span className="menuButton"><img src={menu} alt="burgerButton" /></span>
-    </>
+    <div className="SideBar">SideBar
+    {/* logo miecommerce, archivo ya en carpeta*/}
+    </div>
   )
 }
 
