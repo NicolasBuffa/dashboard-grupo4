@@ -2,6 +2,68 @@ html{
 box-sizing: border-box;
 }
 
-*, *:before, *after{
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root{
+  --gris: #222222
+}
+/* no anduvo */
+/* *, *:before, *:after{
   box-sizing: inherit;
+} */
+
+
+.App{
+  display: flex;  
+}
+
+.SideBar{
+   display: none;
+  background-color: blue;
+  min-width: 296px;
+  height: 100vh;
+}
+
+.MainArea{
+  /* display: flex; */
+  width: 100vw;
+  height: 100vh; 
+  background-color: var(--gris);
+}
+
+.menuButton{
+  position: fixed;
+  z-index: 9;
+  margin: 10px
+}
+
+.menuButton img{
+  fill:  white;
+}
+
+@import url(./pages/Home/Home.css);
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { }
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... } */
+/* Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... } */
+/* X-Large devices (large desktops, 1200px and up) */
+
+
+@media (min-width: 1024px) {
+  
+  .SideBar{
+    display: block;
+    background-color: skyblue
+  } 
+  .menuButton{
+    display: none;
+  }
 }

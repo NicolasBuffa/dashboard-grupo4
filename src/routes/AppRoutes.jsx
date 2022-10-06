@@ -4,7 +4,6 @@ import ProductList from '../pages/Products/ProductsList/ProductsList.jsx';
 import ProductNew from '../pages/Products/ProductNew/ProductNew';
 import ProductView from '../pages/Products/ProductView/ProductView.jsx';
 
-
 import React from 'react'
 
 const AppRoutes = () => {
@@ -14,7 +13,7 @@ const AppRoutes = () => {
       <Route path='/products' element={<ProductList/>}/>
       <Route path='/products/:id' element={<ProductView/>}/>
       <Route path='/products/new' element= {<ProductNew/>}/> 
-      <Route path='/*' element={'Error 404, No se encontro la pagina'}/>
+      <Route path='/*' element={'Error 404, No se encontro la pagina'}/> {/*llama a product view por ser parametrico */}
 
     </Routes>
 
