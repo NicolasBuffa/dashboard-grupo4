@@ -9,7 +9,11 @@ box-sizing: border-box;
 }
 
 :root{
-  --gris: #222222
+  --black_background: #2E2D2D;
+  --white_letra: #FFFFFF;
+  --gray_border: #E1E0E0;
+  --gray_background: #757575;
+
 }
 /* no anduvo */
 /* *, *:before, *:after{
