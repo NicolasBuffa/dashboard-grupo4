@@ -10,24 +10,28 @@ box-sizing: border-box;
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family:var(--fuente_1)
+  font-family:var(--fuente_1);
 }
 
 :root{
   --white_letra: #FFFFFF;
   --gray_border: #E1E0E0;
-  /* agregaria borde mas oscuro para theme claro*/
+  --green: #0cb093;
   --gray_background: #757575;
-  --black_background: #2E2D2D;
-   --fuente_1: "Open Sans", sans-serif; /*momentaneo */
+  --gray_background2:#333333;
+  --black_background: #222222;
+   --fuente_1: "Open Sans", sans-serif;
+}
+
+.App{
+  background-color: var(--gray_border);
 }
 /* no anduvo */
 /* *, *:before, *:after{
   box-sizing: inherit;
 } */
 
-.SideBar{
-  background-color: blue;
+/* .SideBar{
   width: 296px;
   height: 100vh;
   position:fixed;
@@ -35,14 +39,18 @@ box-sizing: border-box;
   left: -296px;
 }
 
-.MainArea{
+.dark .SideBar{
+  background-color: var(--gray_background);
+} */
+
+/* .MainArea{
   display: flex;
   height: 100vh;
   position: relative;
-}
+} */
 
 /*header*/
-.Header{
+/* .Header{
   position: fixed;
   height: 78px;
   width: 100%;
@@ -52,23 +60,15 @@ box-sizing: border-box;
   padding: 20px;
   align-items: center;
   border-bottom: 2px var(--gray_border) solid;
-}
+} */
 
-.HeaderContent{
+/* .HeaderContent{
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
-}
-.menuButton{
-  display: flex;
-  margin: 0px 10px;
-}
-
-.menuButton span img{  
-  fill: white;
-}
-
-@import url(./pages/Home/Home.css);
+} */
+/* 
+@import url(./pages/Home/Home.css); */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { }
@@ -83,15 +83,26 @@ box-sizing: border-box;
   .App{
     padding-left: 296px;
   }
-  .SideBar{
+  /* .SideBar{
     display: block;
-    background-color: skyblue;
     left: 0px;
-  } 
-  .Header{
+  }  */
+
+  /* .Header{
     width: calc(100vw - 296px);
+  } */
+
+}
+
+  /* darkTheme Styles */
+
+  /* dark icon */
+  .darkTheme img{
+    filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(313deg) brightness(104%) contrast(102%);
+    -webkit-transition: .7s;
+    transition: .7s;
   }
-  .menuButton{
-    display: none;
-  }
+
+html .darkTheme{
+  color: #FFFFFF;
 }

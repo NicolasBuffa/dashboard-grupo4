@@ -1,0 +1,21 @@
+.SideBar{
+    width: 296px;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    left: -296px;
+    background-color: var(--white_letra);
+  }
+
+.darkTheme .SideBar{
+    background-color: var(--gray_background2);
+  }
+  
+  
+  @media (min-width: 1024px) {
+    
+    .SideBar{
+      display: block;
+      left: 0px;
+    } 
+  }
