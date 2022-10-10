@@ -1,23 +1,23 @@
-.Header{
-    position: fixed;
-    height: 78px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--white_letra);
-    padding: 20px;
-    align-items: center;
-    border-bottom: 2px var(--gray_background) solid;
-  }
+.Header {
+  position: fixed;
+  height: 78px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white_letra);
+  padding: 20px;
+  align-items: center;
+  border-bottom: 1px var(--gray_background) solid;
+  z-index: 9;
+}
 
-  @media (min-width: 1024px) {
-    
-    .Header{
-      width: calc(100vw - 296px);
-    }
+@media (min-width: 1024px) {
+  .Header {
+    width: calc(100vw - 296px);
   }
+}
 
-.darkTheme .Header{  
-  background-color:var(--gray_background2);
+.darkTheme .Header {
+  background-color: var(--gray_background2);
   border-bottom: var(--black_background);
 }

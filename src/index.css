@@ -1,29 +1,30 @@
 /* Fuentes */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap"); 
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
-html{
-box-sizing: border-box;
+html {
+  box-sizing: border-box;
 }
 
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family:var(--fuente_1);
+  font-family: var(--fuente_1);
 }
 
-:root{
-  --white_letra: #FFFFFF;
-  --gray_border: #E1E0E0;
+:root {
+  --white_letra: #ffffff;
+  --black_letra: #000;
+  --gray_border: #e1e0e0;
   --green: #0cb093;
   --gray_background: #757575;
-  --gray_background2:#333333;
+  --gray_background2: #333333;
   --black_background: #222222;
-   --fuente_1: "Open Sans", sans-serif;
+  --fuente_1: "Open Sans", sans-serif;
 }
 
-.App{
+.App {
   background-color: var(--gray_border);
 }
 /* no anduvo */
@@ -71,16 +72,16 @@ box-sizing: border-box;
 @import url(./pages/Home/Home.css); */
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { }
+@media (min-width: 576px) {
+}
 /* Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { ... } */
 /* Large devices (desktops, 992px and up)
 @media (min-width: 992px) { ... } */
 /* X-Large devices (large desktops, 1200px and up) */
 
-
 @media (min-width: 1024px) {
-  .App{
+  .App {
     padding-left: 296px;
   }
   /* .SideBar{
@@ -91,18 +92,18 @@ box-sizing: border-box;
   /* .Header{
     width: calc(100vw - 296px);
   } */
-
 }
 
-  /* darkTheme Styles */
+/* darkTheme Styles */
 
-  /* dark icon */
-  .darkTheme img{
-    filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(313deg) brightness(104%) contrast(102%);
-    -webkit-transition: .7s;
-    transition: .7s;
-  }
+/* dark icon */
+.darkTheme .icon {
+  filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(313deg)
+    brightness(104%) contrast(102%);
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
 
-html .darkTheme{
-  color: #FFFFFF;
+html .darkTheme {
+  color: #ffffff;
 }
