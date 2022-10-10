@@ -1,5 +1,7 @@
 import React from 'react'
-import AppRoutes from "../routes/AppRoutes";
+import AppRoutes from "../../routes/AppRoutes";
+import './MainArea.css'
+
 const MainArea = () => {
   return (
     <div className='MainArea'>

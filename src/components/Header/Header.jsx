@@ -1,3 +1,5 @@
+import './Header.css'
+
 const Header = ({children}) => {
   return (
     <header className="Header">
