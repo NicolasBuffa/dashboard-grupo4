@@ -1,18 +1,21 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
 import HeaderContent from '../../components/Header/HeaderContent/HeaderContent'
-
+import HomeComponent from '../../components/HomeComponents/HomeComponent'
+import TitleHeaderHome from '../../components/HomeComponents/TitleHeaderHome'
 function Home() {
   return (
     <>
       <Header> 
         <HeaderContent>
-        {/* boton menu y titulo */}
+       <TitleHeaderHome></TitleHeaderHome>
         </HeaderContent>   
         <HeaderContent>
-        {/* searchbar y boton */}
+
         </HeaderContent> 
       </Header>          
+      <HomeComponent>
+      </HomeComponent>
     </>
   )
 }
