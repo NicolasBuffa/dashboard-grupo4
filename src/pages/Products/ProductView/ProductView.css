@@ -60,6 +60,9 @@ label {
   margin-right: 0px;
   border: solid 2px var(--gray_border);
 }
+/* .images {
+  border-radius: 30px;
+} */
 /* COMIENZO CONTENEDOR DETALLES DE PRODUCTO */
 .productView-container_detail {
   padding-top: 120px;
