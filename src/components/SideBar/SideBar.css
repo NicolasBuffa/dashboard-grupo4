@@ -13,7 +13,6 @@
     left: -296px;
     z-index: 99;
     background-color: #efeeee;
-    box-shadow: 0px 5px 70px var(--black_background) ;;
 }
 
 .SideBar div {
@@ -31,7 +30,9 @@
     .SideBarActive {
         transition: all 1s;
         left: 0;
-        opacity: 0.92;
+        opacity: 0.9;
+        box-shadow: 0px 5px 70px var(--black_background) ;;
+
     }
 
     .SideBar:hover {

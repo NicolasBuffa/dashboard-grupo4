@@ -11,30 +11,35 @@ export const Anchor = () => {
     const focusProducts = useRef()
     const focusStore = useRef()
     const focusNavLink=useRef()
+    let value= typeof Number
 
 
 
     const anchorFocus = (e) => {
         if (window.location.pathname === '/') {
+            focusIndex.current.className = 'sideBar--button_index focus'
             focusProducts.current.className = "sideBar--button_products"
             focusStore.current.className = 'sideBar--button_store'
-            focusIndex.current.className = 'sideBar--button_index focus'
         }
-        if (window.location.pathname === '/products' || window.location.pathname === `/products/${JSON.stringify(Number(1-100))}` || window.location.pathname === "/products/new") {
+        if (window.location.pathname === '/products' || window.location.pathname == `/products/${value}` || window.location.pathname === "/products/new") {
             focusProducts.current.className = 'sideBar--button_products focus'
-            focusStore.current.className = 'sideBar--button_store'
             focusIndex.current.className = 'sideBar--button_index'
+            focusStore.current.className = 'sideBar--button_store'
         }
         if (window.location.pathname === '/store') {
-            focusProducts.current.className = "sideBar--button_products"
-            focusIndex.current.className = 'sideBar--button_index'
             focusStore.current.className = 'sideBar--button_store focus'
+            focusIndex.current.className = 'sideBar--button_index'
+            focusProducts.current.className = "sideBar--button_products"
         }
     }
     
     useEffect(()=>{
         anchorFocus()
     })
+
+    useEffect(()=>{
+        anchorFocus()
+    },[focusNavLink])
 
     return (
         <article ref={focusNavLink} className='sideBar--buttons icon'>
