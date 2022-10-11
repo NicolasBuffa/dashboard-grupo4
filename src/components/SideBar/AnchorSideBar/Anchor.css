@@ -24,9 +24,15 @@
     margin:0 20px;
 }
 
-.sideBar--buttons a:hover {
+.sideBar--buttons a:hover{
     transform:scale(1.1);
-    background-color: gray;
+    transition: all 1s;
+    background-color: var(--gray_background);
+    
+
+}
+article .active {
+    background-color: var(--gray_background);
     color: white;
     transition: all 1s;
 }

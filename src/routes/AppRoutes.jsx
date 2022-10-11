@@ -12,7 +12,9 @@ const AppRoutes = () => {
   return (
  
     <Routes>
+
       <Route path='/' element={<Home />} />
+      <Route path='/home' element={<Home />} />
       <Route path='/products' element={<ProductList />} />
       <Route path='/products/:id' element={<ProductView />} />
       <Route path='/products/new' element={<ProductNew />} />
