@@ -19,10 +19,9 @@
     transition: all 1s;
 }
 
-.profilePic{
-    border: 12px solid red;
-    max-width: 20px;
-    max-height: 20px;
+.profilePic{max-width: 30px;
+    max-height: 30px;
+    margin-right: 10px;
 }
 
 

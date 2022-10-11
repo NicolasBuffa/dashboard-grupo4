@@ -7,7 +7,7 @@ import ProfileButton from './ProfileButton/ProfileButton'
 import { useRef } from 'react'
 import { Anchor } from './AnchorSideBar/Anchor'
 import SlideBarHeader from './SideBarHeader/SideBarHeader.jsx'
-import SideBarController from './SideBarController'
+import useSideBarController from './useSideBarController'
 
 
 
@@ -17,7 +17,7 @@ const SideBar = () => {
   const menuButtonClose = useRef()  
   const [input, setInput] = useState('menuButton MenuButtonMobileDesactivate');
 
-  const { ButtonControler, outMenu } = SideBarController(input, sideBarComponent, menuButtonClose, setInput)
+  const { ButtonControler, outMenu } = useSideBarController(input, sideBarComponent, menuButtonClose, setInput)
 
   useEffect(() => { }, [input])
   return (

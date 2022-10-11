@@ -1,5 +1,5 @@
 
-const SideBarController = (input, sideBarComponent,menuButtonClose,setInput) => {
+const useSideBarController = (input, sideBarComponent,menuButtonClose,setInput) => {
 
     const ButtonControler = () => {
         if (input === 'menuButton MenuButtonMobileDesactivate') {
@@ -21,5 +21,4 @@ const SideBarController = (input, sideBarComponent,menuButtonClose,setInput) => 
    {ButtonControler,outMenu}
   )
 }
-
-export default SideBarController
+export default useSideBarController

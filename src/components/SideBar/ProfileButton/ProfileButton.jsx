@@ -12,7 +12,6 @@ const ProfileButton = () => {
         .then(data => setUser(data[0].firstname))
     }
     
-
     useEffect(() => {
         getUser()
     }, []
@@ -20,7 +19,7 @@ const ProfileButton = () => {
 
 
     return (
-        <NavLink className='sideBar--button_user' to='/profile'><img id="profilePic" src={profilePic} />{user}</NavLink>
+        <NavLink className='sideBar--button_user' to='/profile'><img className="profilePic" src={profilePic} />{user}</NavLink>
     )
 }
 
