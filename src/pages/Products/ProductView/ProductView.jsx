@@ -1,34 +1,28 @@
-<<<<<<< Updated upstream
-import React from 'react'
-
-function ProductView() {
-  return (
-    <div>ProductView</div>
-  )
-=======
-import { useForm } from "../../../hooks/useForm";
-import { useGetOneProduct } from "../../../hooks/useGetOneProduct";
 import "./ProductView.css";
+
 import { useParams } from "react-router-dom";
 
-let initialForm = {
-  id: 0,
-  title: "",
-  price: 0,
-  stock: 0,
-  description: "",
-  category: "",
-  images: [],
-  rating: {
-    rate: 0,
-    count: 0,
-  },
-};
+import { useForm } from "../../../hooks/useForm";
+import { useGetOneProduct } from "../../../hooks/useGetOneProduct";
 
+import HeaderContent from "../../../components/Header/HeaderContent/HeaderContent";
+import Header from "../../../components/Header/Header";
 function ProductView() {
+  const { product } = useGetOneProduct();
   const params = useParams();
-  const { product } = useGetOneProduct(params.id, initialForm);
-
+  let initialForm = {
+    id: Number(params.id),
+    title: "",
+    price: 0,
+    stock: 0,
+    description: "",
+    category: "",
+    images: [],
+    rating: {
+      rate: 0,
+      count: 0,
+    },
+  };
   const {
     formState,
     onInputChange,
@@ -45,21 +39,25 @@ function ProductView() {
     images,
   } = useForm(initialForm);
   const showImage = product.images;
-  console.log(showImage);
   return (
     <div className="productView-container">
-      <h2>Producto # {product.id}</h2>
-      {showImage.map((e) => {
-        return <p>olis</p>;
-      })}
-      <p>cualquiercosa</p>
-      <button
-        type="button"
-        className="buttonProductView"
-        onClick={handdleDelete}
-      >
-        Eliminar
-      </button>
+      <Header>
+        <HeaderContent>
+          <h1>
+            Productos <span>&#62; #</span> {product.id}
+          </h1>
+        </HeaderContent>
+        <HeaderContent>
+          <button
+            type="button"
+            className="buttonProductView"
+            onClick={handdleDelete}
+          >
+            Eliminar
+          </button>
+        </HeaderContent>
+      </Header>
+
       {/* Esto es un componente con la info del producto */}
       <div className="productView-container_detail">
         <div className="productView-container_detailContainerMain">
@@ -199,7 +197,6 @@ function ProductView() {
       </div>
     </div>
   );
->>>>>>> Stashed changes
 }
 
-export default ProductView
+export default ProductView;

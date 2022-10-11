@@ -14,23 +14,16 @@ export const useForm = (initialForm) => {
       setFormState({ ...formState, [name]: value });
     }
   };
+
   const handleIncrement = ({ target }) => {
-    setFormState({ stock: formState.stock + 1 });
+    setFormState({ ...formState, stock: formState.stock + 1 });
   };
   const handleDecrement = ({ target }) => {
-    setFormState({ stock: formState.stock - 1 });
+    setFormState({ ...formState, stock: formState.stock - 1 });
   };
+
   const handdleAddImage = ({ target }) => {
     console.log(images);
-  };
-  const handdleDelete = async (ev) => {
-    ev.preventDefault();
-    fetch(`http://localhost:4000/api/product?id=${params.id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
   };
   const onResetForm = () => {
     setFormState(initialForm);
@@ -63,14 +56,15 @@ export const useForm = (initialForm) => {
       .then((response) => response.json())
       .then((json) => console.log(json));
   };
-
-  //   if (response.status === 200) {
-  //     navigate("/articulos");
-  //   } else {
-  // console.log("error")
-  //   }
-  // };
-
+  const handdleDelete = async (ev) => {
+    ev.preventDefault();
+    fetch(`http://localhost:4000/api/product?id=${params.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+  };
   return {
     ...formState,
     formState,
