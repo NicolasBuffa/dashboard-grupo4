@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import addImg from "../../assets/add.png";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import "./style.css";
+import "./AddProductButton.css";
 
 export default function AddProductMobileButton({ inputSearchActive }) {
   const windowWidth = useWindowWidth();

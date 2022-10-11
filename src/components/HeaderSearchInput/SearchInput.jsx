@@ -1,12 +1,11 @@
 import { useState } from "react";
 import magnify from "../../assets/magnify.svg";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import "./style.css";
+import "./SearchInput.css";
 
 export const SearchInput = ({ setProducts, active, setActive }) => {
   const [value, setValue] = useState("");
   const [searchInputProducts, setSearchInputProducts] = useState();
-
   const windowWidth = useWindowWidth();
 
   async function handleInput(value) {
