@@ -1,0 +1,41 @@
+.sideBar--buttons {
+    display: flex;
+    margin: 30px 0;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.sideBar--buttons a {
+    display: flex;
+    align-items: center;
+    text-align: start;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    min-width: none;
+    color: black;
+    transform:scale(1);
+    transition: all 1s;
+    text-decoration: none;
+}
+.sideBar--buttons a img{
+    margin:0 20px;
+}
+
+.sideBar--buttons a:hover {
+    transform:scale(1.1);
+    background-color: gray;
+    color: white;
+    transition: all 1s;
+}
+/* .sideBar--buttons a:focus  {
+    background-color: gray;
+    color: white;
+} */
+
+.sideBar--buttons .focus{
+    background-color: gray;
+    color: white;
+}
