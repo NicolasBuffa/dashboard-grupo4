@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   background-color: var(--white_letra);
-  padding: 20px;
+  padding: 20px 20px 20px 60px;
   align-items: center;
   border-bottom: 1px var(--gray_background) solid;
   z-index: 9;
