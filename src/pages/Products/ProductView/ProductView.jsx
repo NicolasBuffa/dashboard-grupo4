@@ -50,7 +50,7 @@ function ProductView() {
         <HeaderContent>
           <button
             type="button"
-            className="buttonProductView"
+            className=" submitButton"
             onClick={handdleDelete}
           >
             Eliminar
