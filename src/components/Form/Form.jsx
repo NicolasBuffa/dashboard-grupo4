@@ -4,19 +4,16 @@ import { useForm } from "..//../hooks/useForm";
 import CardImage from "./CardImage";
 
 function Form({ product }) {
-  const showImage2 = product.images;
   const refImage = useRef();
   const [newImage, setNewImage] = useState();
   const [showImage, setShowImage] = useState(product.images);
   const handdleAddImage = ({ target }) => {
-    // let aux = formState.images;
-    // aux.push(target.value);
     setFormState({
       ...formState,
-      images: [refImage.current.value],
+      images: [...formState.images, refImage.current.value],
     });
   };
-  console.log(refImage);
+
   let initialForm = {
     id: "",
     title: "",
@@ -24,7 +21,7 @@ function Form({ product }) {
     stock: "",
     description: "",
     category: "",
-    images: "",
+    images: [],
     rating: {
       rate: "",
       count: "",
@@ -46,18 +43,13 @@ function Form({ product }) {
     stock,
     images,
   } = useForm(initialForm);
+
+  useEffect(() => {}, [formState]);
   useEffect(() => {
     if (product.id !== null) {
       setFormState({ ...formState, ...product });
     }
   }, [product]);
-
-  useEffect(() => {
-    console.log("meactualice");
-    return () => {
-      console.log("medesmonte");
-    };
-  }, [showImage]);
 
   return (
     <>
@@ -141,11 +133,7 @@ function Form({ product }) {
             name="images"
             id="inputImg"
             type="text"
-            onChange={(e) => {
-              setNewImage(e.target.value);
-            }}
-            // value={newImage}
-            ref={newImage}
+            ref={refImage}
           />
           <button
             type="button"
@@ -159,8 +147,8 @@ function Form({ product }) {
         <div className="productView-container_actualImg">
           <h5>Imagenes Actuales</h5>
           {/* Esto puede ser un componente mapeado */}
-          {showImage2.map((image) => {
-            return <CardImage image={image} />;
+          {formState.images.map((image, index) => {
+            return <CardImage image={image} key={image + index} />;
           })}
         </div>
         <div className="containerSubmitButton">
