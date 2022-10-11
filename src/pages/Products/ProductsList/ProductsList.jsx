@@ -20,7 +20,7 @@ function ProductList() {
     <>
       <Header>
         <HeaderContent>
-          {!inputSearchActive && <h1>Product List</h1>}
+          {!inputSearchActive && <h2>Product List</h2>}
         </HeaderContent>
         <HeaderContent>
           <SearchInput

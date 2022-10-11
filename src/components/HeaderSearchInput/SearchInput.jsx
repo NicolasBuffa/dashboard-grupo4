@@ -36,7 +36,7 @@ export const SearchInput = ({ setProducts, active, setActive }) => {
     <>
       <div
         className="inputSearchContainer"
-        style={active ? { width: `${100}vw` } : null}
+        style={active ? { maxWidth: `${75}vw`, width: `${75}vw` } : null}
         onClick={mobileBehavior}
       >
         <button
