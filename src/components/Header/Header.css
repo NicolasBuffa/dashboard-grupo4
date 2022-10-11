@@ -13,6 +13,7 @@
 
 @media (min-width: 1024px) {
   .Header {
+    padding: 20px;
     width: calc(100vw - 296px);
   }
 }

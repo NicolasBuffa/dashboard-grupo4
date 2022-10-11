@@ -1,10 +1,11 @@
 import React from 'react'
 import './MenuButtonMobileClose.css'
 
-const MenuButtonMobileClose = ({ reference , fn}) => {
+const MenuButtonMobileClose = ({ reference, fn}) => {
 
-    
-    return (<div ref={reference} className='menuButtonCloseUp'  onClick={fn}></div>
+
+
+  return (<div ref={reference} className='menuButtonCloseUp' onClick={fn}></div>
   )
 }
 

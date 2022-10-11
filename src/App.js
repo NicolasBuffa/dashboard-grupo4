@@ -9,13 +9,13 @@ function App() {
   const { theme } = useContext(ThemeContext)
   return (
     <BrowserRouter>
-    <div className={`App ${theme}`}>
-      {/* <ThemeProvider> */}
+      <div className={`App ${theme}`}>
+        {/* <ThemeProvider> */}
         <SideBar />
         <MainArea />
-      {/* </ThemeProvider> */}
-    </div>
-      </BrowserRouter>
+        {/* </ThemeProvider> */}
+      </div>
+    </BrowserRouter>
   );
 }
 

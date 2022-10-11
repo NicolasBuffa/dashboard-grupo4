@@ -1,4 +1,4 @@
-import {Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home/Home';
 import ProductList from '../pages/Products/ProductsList/ProductsList.jsx';
 import ProductNew from '../pages/Products/ProductNew/ProductNew';
@@ -9,6 +9,7 @@ import React from 'react'
 
 const AppRoutes = () => {
   return (
+ 
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/products' element={<ProductList />} />
@@ -16,11 +17,8 @@ const AppRoutes = () => {
       <Route path='/products/new' element={<ProductNew />} />
       <Route path='/store' element={<Tienda />} />
       <Route path='/store/new' element={<Tienda />} />
-
-      <Route path='/*' element={'Error 404, No se encontro la pagina'} /> {/*llama a product view por ser parametrico */}
-
+      <Route element={'Error 404, No se encontro la pagina'} /> {/*llama a product view por ser parametrico */}
     </Routes>
-
   )
 }
 
