@@ -5,7 +5,7 @@ import './SideBarHeader.css'
 
 const SideBarHeader = () => {
   return (
-    <NavLink to='/'><img className='SideBarTitleImg' src={logo} alt={logo} /></NavLink>
+    <NavLink to='/home'><img className='SideBarTitleImg' src={logo} alt={logo} /></NavLink>
   )
 }
 
