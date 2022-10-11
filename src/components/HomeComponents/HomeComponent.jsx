@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import caja from "../../assets/package-variant-closed.svg";
 import casa from "../../assets/home.svg";
 import "./HomeComponent.css";
-import DivInfoComponent from "./DivInfoComponent";
-import DivLinksComponent from "./DivLinksComponent";
+import DivInfoComponent from "./DivInfoComponent/DivInfoComponent";
+import DivLinksComponent from "./DivLinksComponent/DivLinksComponent";
 
 function HomeComponent() {
   const [datos, setDatos] = useState([]);
@@ -22,9 +22,9 @@ function HomeComponent() {
     id: 1,
     img: casa,
     type: "Tiendas",
-    url1: "/tiendas",
+    url1: "/store",
     urlType: "Ver listado",
-    url2: "/tiendas/new",
+    url2: "/store/new",
     utlType2: "Agregar Tienda",
   };
   useEffect(() => {

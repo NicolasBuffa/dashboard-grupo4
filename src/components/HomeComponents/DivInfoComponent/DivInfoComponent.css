@@ -1,0 +1,29 @@
+.articleHome__containterInformation{
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 4vw;
+    transition: all 0.4s;
+    
+}
+
+.articleHome__containterInformation__price{
+    font-weight: 700;
+}
+
+
+@media (min-width: 768px){
+    .articleHome__containterInformation{
+        font-size: 16px;
+    }
+    
+}
+
+@media (min-width: 1200px){
+    .articleHome__containterInformation{
+        font-size: 20px;
+    }
+
+   
+}

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BotonComponent from "./BotonComponent";
-
+import './DivLinksComponent.css'
 function DivLinksComponent(props) {
   return (
     <>

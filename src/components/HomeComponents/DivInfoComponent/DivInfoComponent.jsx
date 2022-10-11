@@ -1,4 +1,5 @@
 import React from 'react'
+import './DivInfoComponent.css'
 
 function DivInfoComponent(props) {
   return (

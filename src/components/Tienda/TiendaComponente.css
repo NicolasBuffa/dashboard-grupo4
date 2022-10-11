@@ -3,11 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
-.tiendaContainter_div{
-    margin-top: 30%;
-    
-}
+
 .tiendaContainter_gif{
     display: flex;
     align-items: center;

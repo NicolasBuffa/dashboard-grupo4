@@ -6,6 +6,7 @@ import ProductView from '../pages/Products/ProductView/ProductView.jsx';
 import Tienda from '../pages/Tienda/Tienda';
 
 import React from 'react'
+import Page404 from '../pages/404/Page404';
 
 const AppRoutes = () => {
   return (
@@ -17,7 +18,7 @@ const AppRoutes = () => {
       <Route path='/products/new' element={<ProductNew />} />
       <Route path='/store' element={<Tienda />} />
       <Route path='/store/new' element={<Tienda />} />
-      <Route element={'Error 404, No se encontro la pagina'} /> {/*llama a product view por ser parametrico */}
+      <Route path='/*' element={<Page404/>}/>
     </Routes>
   )
 }
