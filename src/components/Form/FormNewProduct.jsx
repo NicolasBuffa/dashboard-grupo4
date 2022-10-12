@@ -1,15 +1,25 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 import { useForm } from "../../hooks/useForm";
+import CardImage from "./CardImage";
 
 function FormNewProduct({ product }) {
+  const refImage = useRef();
+
+  const handdleAddImage = ({ target }) => {
+    setFormState({
+      ...formState,
+      images: [...formState.images, refImage.current.value],
+    });
+  };
+
   let initialForm = {
     title: "",
     price: 0,
     stock: 0,
     description: "",
     category: "",
-    images: [""],
+    images: [],
     rating: {
       rate: 0,
       count: 0,
@@ -19,20 +29,20 @@ function FormNewProduct({ product }) {
     formState,
     setFormState,
     onInputChange,
-    handdleAddImage,
-    handleDecrement,
     handleIncrement,
-    handleSubmit,
+    handleDecrement,
     handleSubmitNewProduct,
-    handdleDelete,
     onResetForm,
     price,
     description,
     title,
     stock,
-    images,
   } = useForm(initialForm);
-
+  // useEffect(() => {
+  //   if (product.id !== null) {
+  //     setFormState({ ...formState, ...product });
+  //   }
+  // }, [product]);
   return (
     <>
       {/* Componente form */}
@@ -113,8 +123,7 @@ function FormNewProduct({ product }) {
             name="images"
             id="inputImg"
             type="text"
-            onChange={onInputChange}
-            value={images}
+            ref={refImage}
           />
           <button
             type="button"
@@ -127,14 +136,16 @@ function FormNewProduct({ product }) {
 
         <div className="productView-container_actualImg">
           <h5>Imagenes Actuales</h5>
-          {/* Esto puede ser un componente mapeado */}
-          <div className="productView-container_actualImgDetail">
-            <div className="picture">
-              <img src={product.images} alt="" />
-            </div>
-            <div>{product.title}</div>
-            <button className="buttonProductView">Quitar </button>
-          </div>
+          {/* {formState.images.map((image, index) => {
+            return (
+              <CardImage
+                handleRemoveImage={handleRemoveImage}
+                image={image}
+                index={index}
+                key={image + index}
+              />
+            );
+          })} */}
         </div>
         <div className="containerSubmitButton">
           <button type="button" className="submitButton" onClick={onResetForm}>
