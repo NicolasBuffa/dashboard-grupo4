@@ -1,0 +1,57 @@
+.SideBar {
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 296px;
+    max-width: 50vw;
+    min-width: 180px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -296px;
+    z-index: 99;
+    background-color: #efeeee;
+}
+
+.SideBar div {
+    width: 100%;
+}
+.darkTheme .SideBar{
+    background-color: var(--gray_background2);
+  }
+
+
+@media (max-width: 1024px) {
+
+    .SideBarActive {
+        transition: all 1s;
+        left: 0;
+        opacity: 0.97;
+        box-shadow: 0px 5px 70px var(--black_background) ;;
+
+    }
+
+    .SideBar:hover {
+        transition: all 1s;
+
+    }
+
+    .SideBarDesactivate {
+        opacity: 0;
+        transition: all 1s;
+        box-shadow: 0  0px 0px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .SideBar {
+        top: 0;
+        left: 0;
+        box-shadow: 0  0px 0px;
+    };
+    
+
+}

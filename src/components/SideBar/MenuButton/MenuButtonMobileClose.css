@@ -1,0 +1,20 @@
+@media (min-width:1024px) {
+
+    .menuButtonClose {
+        display: none;
+    }
+}
+
+.menuButtonCloseUp {
+    display: none;
+}
+
+.menuButtonClose {
+    display: block;
+    position: fixed;
+    z-index: 98;
+    left: 300px;
+    top: 10px;
+    width: 100vw;
+    height: 100vh;
+}

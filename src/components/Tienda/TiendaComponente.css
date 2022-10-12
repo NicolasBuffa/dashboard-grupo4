@@ -1,0 +1,34 @@
+.tiendaContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.tiendaContainter_gif{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.tiendaContainer_H1{
+    text-transform:uppercase;
+    text-align: center;
+}
+
+.tiendaContainer_P{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.linkTienda{
+    text-decoration: none;
+    background-color: var(--gray_background);
+    border-radius: 16px;
+    font-size: 12px;
+    padding: 4px;
+    color:var(--white_letra);
+
+}

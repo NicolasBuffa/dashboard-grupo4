@@ -1,0 +1,30 @@
+body {
+  background-color: var(--white_letra);
+}
+
+.sectionHome {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 90px;
+  width: 100%;
+}
+.articleHome {
+  margin-left: 4px;
+  margin-right: 4px;
+  background-color: var(--white_letra);
+  padding: 15px 8px 15px 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.darkTheme .articleHome {
+  background-color: var(--gray_background2);
+  border-bottom: var(--black_background);
+}
+@media only screen and (min-width: 768px) {
+  .articleHome {
+    padding: 15px;
+  }
+}

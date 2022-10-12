@@ -1,0 +1,9 @@
+.MainArea {
+  /* display: flex; */
+  height: 100vh;
+  position: relative;
+}
+
+.darkTheme .MainArea {
+  background-color: var(--black_background);
+}
