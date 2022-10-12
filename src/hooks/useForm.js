@@ -1,11 +1,10 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export const useForm = (initialForm) => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState(initialForm);
-  const images = useRef(null);
   const params = useParams();
 
   const onInputChange = ({ target }) => {

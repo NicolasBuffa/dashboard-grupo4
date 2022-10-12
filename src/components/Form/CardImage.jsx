@@ -5,11 +5,11 @@ function CardImage({ image, index, formState, setFormState }) {
     let arr = formState.images;
     try {
       let arrFiltrada = arr.filter(function (e) {
-        return e != image;
+        return e !== image;
       });
       setFormState({
         ...formState,
-        images: [...formState.images, arrFiltrada],
+        images: [...arrFiltrada],
       });
     } catch (error) {
       console(error);

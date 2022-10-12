@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 
 import { useForm } from "../../hooks/useForm";
 import CardImage from "./CardImage";
@@ -37,7 +37,6 @@ function FormNewProduct({ product }) {
     description,
     title,
     stock,
-    images,
   } = useForm(initialForm);
   // useEffect(() => {
   //   if (product.id !== null) {

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 import { useForm } from "..//../hooks/useForm";
 import CardImage from "./CardImage";
