@@ -9,7 +9,7 @@ import { Anchor } from './AnchorSideBar/Anchor'
 import ProfileButton from './ProfileButton/ProfileButton'
 import MenuButtonMobileClose from './MenuButton/MenuButtonMobileClose'
 
-import useSideBarController from './useSideBarController'
+import useSideBarController from '../../hooks/useSideBarController'
 
 
 const SideBar = () => {

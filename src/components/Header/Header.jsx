@@ -1,6 +1,6 @@
 import MenuButtonMobile from '../SideBar/MenuButton/MenuButtonMobile'
 import './Header.css'
-import useSideBarController from '../SideBar/useSideBarController'
+import useSideBarController from '../../hooks/useSideBarController'
 import { useEffect } from 'react'
 const Header = ({children}) => {
   
