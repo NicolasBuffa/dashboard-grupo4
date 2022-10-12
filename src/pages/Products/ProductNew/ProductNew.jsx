@@ -1,4 +1,4 @@
-import "./ProductNew.css";
+import "../ProductView/ProductView.css";
 import { useEffect } from "react";
 import { useForm } from "../../../hooks/useForm";
 import { useGetOneProduct } from "../../../hooks/useGetOneProduct";

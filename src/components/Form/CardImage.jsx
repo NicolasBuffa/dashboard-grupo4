@@ -4,7 +4,7 @@ function CardImage({ image }) {
   return (
     <div className="productView-container_actualImgDetail">
       <div className="picture">
-        <p>{image}</p>
+        {/* <p>{image}</p> */}
         {/* <img src={image} alt="" /> */}
       </div>
 

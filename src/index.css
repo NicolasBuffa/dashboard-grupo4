@@ -21,6 +21,7 @@ html {
   --gray_background: #757575;
   --gray_background2: #333333;
   --black_background: #222222;
+  --gray_border2: #b0b0b0;
   --fuente_1: "Open Sans", sans-serif;
 }
 
@@ -28,14 +29,24 @@ html {
   background-color: var(--gray_border);
 }
 
-a{ text-decoration: none;}
-a:visited { color: inherit;}
-a:hover { text-decoration: none; color: #0cb093;}
-a:active { text-decoration: none; color: #0cb093; } 
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: #0cb093;
+}
+a:active {
+  text-decoration: none;
+  color: #0cb093;
+}
 
-.dark .SideBar{
+.dark .SideBar {
   background-color: var(--gray_background);
-} 
+}
 
 /* Small devices (phones, 576px and up) */
 /* @media (min-width: 576px) { ... } */
@@ -49,9 +60,10 @@ a:active { text-decoration: none; color: #0cb093; }
     padding-left: 296px;
   }
 }
-/********* darkTheme Styles *********/ 
+/********* darkTheme Styles *********/
 
-html .darkTheme, a {
+html .darkTheme,
+a {
   color: #ffffff;
 }
 /* dark icon */
