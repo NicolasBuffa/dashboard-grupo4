@@ -1,6 +1,20 @@
 import React from "react";
 
-function CardImage({ image }) {
+function CardImage({ image, index, formState, setFormState }) {
+  const handleRemoveImage = (image) => {
+    let arr = formState.images;
+    try {
+      let arrFiltrada = arr.filter(function (e) {
+        return e != image;
+      });
+      setFormState({
+        ...formState,
+        images: [...formState.images, arrFiltrada],
+      });
+    } catch (error) {
+      console(error);
+    }
+  };
   return (
     <div className="productView-container_actualImgDetail">
       <div className="picture">
@@ -8,7 +22,14 @@ function CardImage({ image }) {
         {/* <img src={image} alt="" /> */}
       </div>
 
-      <button className="buttonProductView">Quitar </button>
+      <button
+        onClick={(e) => {
+          handleRemoveImage(image, e);
+        }}
+        className="buttonProductView"
+      >
+        Quitar{" "}
+      </button>
     </div>
   );
 }

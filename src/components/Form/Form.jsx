@@ -5,8 +5,6 @@ import CardImage from "./CardImage";
 
 function Form({ product }) {
   const refImage = useRef();
-  const [newImage, setNewImage] = useState();
-  const [showImage, setShowImage] = useState(product.images);
   const handdleAddImage = ({ target }) => {
     setFormState({
       ...formState,
@@ -31,17 +29,14 @@ function Form({ product }) {
     formState,
     setFormState,
     onInputChange,
-    // handdleAddImage,
     handleDecrement,
     handleIncrement,
     handleSubmit,
-    handdleDelete,
     onResetForm,
     price,
     description,
     title,
     stock,
-    images,
   } = useForm(initialForm);
 
   useEffect(() => {}, [formState]);
@@ -50,7 +45,6 @@ function Form({ product }) {
       setFormState({ ...formState, ...product });
     }
   }, [product]);
-
   return (
     <>
       {/* Componente form */}
@@ -146,9 +140,16 @@ function Form({ product }) {
 
         <div className="productView-container_actualImg">
           <h5>Imagenes Actuales</h5>
-          {/* Esto puede ser un componente mapeado */}
           {formState.images.map((image, index) => {
-            return <CardImage image={image} key={image + index} />;
+            return (
+              <CardImage
+                formState={formState}
+                setFormState={setFormState}
+                image={image}
+                index={index}
+                key={image + index}
+              />
+            );
           })}
         </div>
         <div className="containerSubmitButton">
@@ -158,7 +159,6 @@ function Form({ product }) {
           <button className="submitButton">Guardar </button>
         </div>
       </form>
-      {/* Componente form fin */}
     </>
   );
 }

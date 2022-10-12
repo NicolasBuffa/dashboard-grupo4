@@ -26,19 +26,9 @@ export const useForm = (initialForm) => {
     }
   };
 
-  const handdleAddImage = ({ target }) => {
-    // let aux = formState.images;
-    // aux.push(target.value);
-    setFormState({ ...formState, images: [...formState.images, target.value] });
-  };
-
-  const handleRemoveImage = (index) => {
-    let aux = formState.images;
-    aux.splice(index, 1);
-    setFormState({ ...formState, images: aux });
-  };
   const onResetForm = () => {
     setFormState(initialForm);
+    navigate("/products");
   };
   const handleSubmitNewProduct = async (ev) => {
     ev.preventDefault();
@@ -98,8 +88,6 @@ export const useForm = (initialForm) => {
     onInputChange,
     handleSubmit,
     handdleDelete,
-    handdleAddImage,
-    handleRemoveImage,
     handleDecrement,
     handleIncrement,
     handleSubmitNewProduct,
