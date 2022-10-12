@@ -1,7 +1,6 @@
 import "./ProductView.css";
 
-import { useParams } from "react-router-dom";
-import { useRef } from "react";
+import { useParams, Link } from "react-router-dom";
 
 import { useForm } from "../../../hooks/useForm";
 import { useGetOneProduct } from "../../../hooks/useGetOneProduct";
@@ -51,7 +50,7 @@ function ProductView() {
       <Header>
         <HeaderContent>
           <h2>
-            Productos <span>&#62; #</span> {product.id}
+            <Link to="/products">Productos </Link> <span>&#62; #</span> {product.id}
           </h2>
         </HeaderContent>
         <HeaderContent>
