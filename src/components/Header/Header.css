@@ -8,6 +8,7 @@
   padding: 20px 20px 20px 60px;
   align-items: center;
   border-bottom: 1px var(--gray_background) solid;
+  box-shadow: 0px 2px 10px var(--gray_background2);
   z-index: 9;
 }
 

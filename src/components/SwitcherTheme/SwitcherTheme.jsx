@@ -5,7 +5,6 @@ import moon from "../../assets/moon-fill.svg";
 import "./Switcher.css";
 
 const SwitcherTheme = () => {
-  //document.documentElement.setAttribute("data-theme","dark")
   const { theme, toggle: switcherFunc } = useContext(ThemeContext);
   // eslint-disable-next-line
   const [localTheme, setLocalTheme] = useState("");
@@ -16,7 +15,6 @@ const SwitcherTheme = () => {
         ? "darkTheme"
         : "clearTheme";
     window.localStorage.setItem("theme", currentTheme);
-    console.log("anda");
   };
 
   useEffect(() => {
