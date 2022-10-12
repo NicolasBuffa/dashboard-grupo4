@@ -112,11 +112,11 @@ function Form({ product }) {
         />
 
         <label>Tienda</label>
-        <select className="inputForm" name="" id="">
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+        <select className="inputForm" name="" id="" >
+          <option selected="selected" value="tienda1">Olivia Store</option>
+          <option value="store2">Store 2</option>
+          <option value="store3">Store 3</option>
+          <option value="store4">Store 4</option>
         </select>
         <h3>Galeria de Imagenes</h3>
 
