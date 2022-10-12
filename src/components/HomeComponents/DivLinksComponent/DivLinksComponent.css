@@ -51,4 +51,10 @@
     padding-top: 6px;
     padding-bottom: 6px;
   }
+  .articleHome__conteinerLink > :nth-child(1) {
+    width: 100px;
+  }
+  .articleHome__conteinerLink > :nth-child(2) {
+    width: 160px;
+  }
 }
