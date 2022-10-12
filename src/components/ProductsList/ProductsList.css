@@ -41,7 +41,7 @@
 .product__article__specification {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   padding: 15px 0;
 }
