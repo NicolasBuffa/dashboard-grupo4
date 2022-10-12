@@ -1,8 +1,11 @@
 import { useRef, useEffect } from "react";
 
 import { useForm } from "../../hooks/useForm";
+import Modal from "../Modal/Modal";
 
 function FormNewProduct({ product }) {
+
+
   let initialForm = {
     title: "",
     price: 0,
@@ -36,6 +39,7 @@ function FormNewProduct({ product }) {
   return (
     <>
       {/* Componente form */}
+      {console.log(handleSubmitNewProduct())}  
       <form onSubmit={handleSubmitNewProduct} action="submit">
         <label>Nombre</label>
         <input
@@ -99,10 +103,10 @@ function FormNewProduct({ product }) {
 
         <label>Tienda</label>
         <select className="inputForm" name="" id="">
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+        <option selected="selected" value="tienda1">Olivia Store</option>
+          <option value="store2">Store 2</option>
+          <option value="store3">Store 3</option>
+          <option value="store4">Store 4</option>
         </select>
         <h3>Galeria de Imagenes</h3>
 

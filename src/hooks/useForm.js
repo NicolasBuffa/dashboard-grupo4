@@ -42,6 +42,7 @@ export const useForm = (initialForm) => {
   };
   const handleSubmitNewProduct = async (ev) => {
     ev.preventDefault();
+
     fetch("http://localhost:4000/api/product", {
       method: "POST",
       body: JSON.stringify({
@@ -53,11 +54,8 @@ export const useForm = (initialForm) => {
     })
       // .then((response) => response.json())
       // .then((json) => console.log(json));
-      .then((response) =>
-        response.status === 201
-          ? navigate("/products")
-          : console.log(response.status)
-      );
+      .then((response) =>{return response.status})
+        .catch((error) => { console.error(error); });
   };
   const handleSubmit = async (ev) => {
     ev.preventDefault();

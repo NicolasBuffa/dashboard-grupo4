@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "../../../hooks/useForm";
 import { useGetOneProduct } from "../../../hooks/useGetOneProduct";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import FormNewProduct from "../../../components/Form/FormNewProduct";
 
@@ -53,7 +53,7 @@ function ProductNew() {
     <div className="productView-container">
       <Header>
         <HeaderContent>
-          <h1>Productos &#62; Nuevo Producto</h1>
+          <h2><Link to="/products">Productos </Link>&#62; Nuevo Producto</h2>
         </HeaderContent>
         <HeaderContent></HeaderContent>
       </Header>
