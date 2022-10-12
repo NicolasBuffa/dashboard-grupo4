@@ -50,9 +50,9 @@ function ProductView() {
     <div className="productView-container">
       <Header>
         <HeaderContent>
-          <h1>
+          <h2>
             Productos <span>&#62; #</span> {product.id}
-          </h1>
+          </h2>
         </HeaderContent>
         <HeaderContent>
           <button
