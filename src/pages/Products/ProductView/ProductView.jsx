@@ -28,21 +28,7 @@ function ProductView() {
 
   const { product } = useGetOneProduct(initialForm);
 
-  const {
-    formState,
-    onInputChange,
-    handdleAddImage,
-    handleDecrement,
-    handleIncrement,
-    handleSubmit,
-    handdleDelete,
-    onResetForm,
-    price,
-    description,
-    title,
-    stock,
-    images,
-  } = useForm(initialForm);
+  const { handdleDelete } = useForm(initialForm);
   const showImage = product.images;
 
   return (
@@ -50,7 +36,8 @@ function ProductView() {
       <Header>
         <HeaderContent>
           <h2>
-            <Link to="/products">Productos </Link> <span>&#62; #</span> {product.id}
+            <Link to="/products">Productos </Link> <span>&#62; #</span>{" "}
+            {product.id}
           </h2>
         </HeaderContent>
         <HeaderContent>

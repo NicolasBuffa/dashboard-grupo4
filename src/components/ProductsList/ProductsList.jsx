@@ -6,44 +6,7 @@ import notFound from "../../assets/notFound.png";
 import "./ProductsList.css";
 import { getProductsAPI } from "../../utils/methods";
 
-export default function ProductsList({ products, setProducts }) {
-  const [loading, setLoading] = useState(false); //Me lo puedo llevar
-  const [loadingImage, setLoadingImage] = useState(false); //Me lo puedo llevar
-
-  useEffect(() => {
-    setLoading(true);
-    setLoadingImage(true);
-    //Carga de productos e imagenes
-    delayProductList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  function delayProductList() {
-    setTimeout(() => {
-      setLoading(false);
-      getProducts();
-      delayProductsImage();
-    }, Math.random() * 2500);
-  }
-  function delayProductsImage() {
-    //Carga de imagen
-    setTimeout(() => {
-      setLoadingImage(false);
-    }, 3000);
-  }
-
-  //
-
-  async function getProducts() {
-    try {
-      const response = await getProductsAPI();
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      return error;
-    }
-  }
-
-  //
+export default function ProductsList({ products, loading, loadingImage }) {
   return (
     <section className="productList">
       {loading ? (

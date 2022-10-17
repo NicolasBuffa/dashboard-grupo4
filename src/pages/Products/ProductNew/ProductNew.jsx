@@ -28,23 +28,7 @@ function ProductNew() {
 
   const params = useParams();
 
-  const {
-    onInputChange,
-    handdleAddImage,
-    handleSubmit,
-    handleSubmitNewProduct,
-    handdleDelete,
-    handleDecrement,
-    handleIncrement,
-    onResetForm,
-    // Valores del formState
-    formState,
-    price,
-    description,
-    title,
-    stock,
-    images,
-  } = useForm(initialForm);
+  const { formState } = useForm(initialForm);
   useEffect(() => {
     console.log(formState);
   }, [formState]);
@@ -53,7 +37,10 @@ function ProductNew() {
     <div className="productView-container">
       <Header>
         <HeaderContent>
-        <h2><Link to="/products">Productos </Link>&#62; Nuevo Producto</h2>        </HeaderContent>
+          <h2>
+            <Link to="/products">Productos </Link>&#62; Nuevo Producto
+          </h2>{" "}
+        </HeaderContent>
         <HeaderContent></HeaderContent>
       </Header>
 
