@@ -136,16 +136,15 @@ function FormNewProduct({ product }) {
 
         <div className="productView-container_actualImg">
           <h5>Imagenes Actuales</h5>
-          {/* {formState.images.map((image, index) => {
+          {formState.images.map((image, index) => {
             return (
               <CardImage
-                handleRemoveImage={handleRemoveImage}
                 image={image}
                 index={index}
                 key={image + index}
               />
             );
-          })} */}
+          })}
         </div>
         <div className="containerSubmitButton">
           <button type="button" className="submitButton" onClick={onResetForm}>
