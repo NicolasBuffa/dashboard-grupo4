@@ -5,10 +5,9 @@ import casa from "../../assets/home.svg";
 import "./HomeComponent.css";
 import DivInfoComponent from "./DivInfoComponent/DivInfoComponent";
 import DivLinksComponent from "./DivLinksComponent/DivLinksComponent";
-
+import { getProductsAPI } from "../../utils/methods";
 function HomeComponent() {
   const [datos, setDatos] = useState([]);
-  const url = "http://localhost:4000/api/product";
   const products = {
     id: 0,
     img: caja,
@@ -28,7 +27,7 @@ function HomeComponent() {
     utlType2: "Agregar Tienda",
   };
   useEffect(() => {
-    fetch(url)
+    getProductsAPI()
       .then((res) => res.json())
       .then((data) =>
         setDatos([

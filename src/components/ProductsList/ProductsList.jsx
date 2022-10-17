@@ -4,6 +4,7 @@ import ClockLoader from "react-spinners/ClockLoader";
 import MoonLoader from "react-spinners/MoonLoader";
 import notFound from "../../assets/notFound.png";
 import "./ProductsList.css";
+import { getProductsAPI } from "../../utils/methods";
 
 export default function ProductsList({ products, setProducts }) {
   const [loading, setLoading] = useState(false); //Me lo puedo llevar
@@ -29,15 +30,20 @@ export default function ProductsList({ products, setProducts }) {
       setLoadingImage(false);
     }, 3000);
   }
+
+  //
+
   async function getProducts() {
     try {
-      const response = await fetch("http://localhost:4000/api/product");
+      const response = await getProductsAPI();
       const data = await response.json();
       setProducts(data);
     } catch (error) {
       return error;
     }
   }
+
+  //
   return (
     <section className="productList">
       {loading ? (

@@ -2,7 +2,7 @@ import { useState } from "react";
 import magnify from "../../assets/magnify.svg";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import "./SearchInput.css";
-
+import { getProductsAPI } from "../../utils/methods";
 export const SearchInput = ({ setProducts, active, setActive }) => {
   const [value, setValue] = useState("");
   const [searchInputProducts, setSearchInputProducts] = useState();
@@ -10,7 +10,7 @@ export const SearchInput = ({ setProducts, active, setActive }) => {
 
   async function handleInput(value) {
     try {
-      const response = await fetch("http://localhost:4000/api/product");
+      const response = await getProductsAPI();
       const data = await response.json();
       setSearchInputProducts(data);
       setValue(value.toLowerCase());
