@@ -19,8 +19,12 @@ export default function ProductsList({ products, loading, loadingImage }) {
           />
         </div>
       ) : products.length ? (
-        products.map((product) => (
-          <article className="productList__article" key={product.id}>
+        products.map((product, index) => (
+          <article
+            className="productList__article"
+            key={product.id}
+            data-testid={`productList_article-${index}`}
+          >
             <Link to={`/products/${product.id}`}>
               {loadingImage ? (
                 <div className="productList__imagesLoader">

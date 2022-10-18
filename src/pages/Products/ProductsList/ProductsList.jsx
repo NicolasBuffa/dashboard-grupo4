@@ -53,9 +53,9 @@ function ProductList() {
     if (windowWidth > 576) setInputSearchActive(false);
   }, [windowWidth]);
 
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
+  // useEffect(() => {
+  //   console.log(products);
+  // }, [products]);
   return (
     <>
       <Header>
