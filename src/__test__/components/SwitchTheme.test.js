@@ -29,11 +29,18 @@ describe('SwitcherTheme tests: defecto clearTheme', () => {
         expect(checkbox).toBeChecked()
     })
     
-    test('debe cambiar a dark mode(agregar clase)', () => {   
+    test('debe cambiar localStorage a darkTheme', () => {   
         const checkbox = screen.getByRole('checkbox')     
         userEvent.click(checkbox)
         const currentStorage = localStorage.getItem('theme')
         expect(currentStorage).toMatch('darkTheme')
+    })
+    test('debe agregar clase `darkTheme` a componentes(iconos) del switcher', () => {    
+        const checkbox = screen.getByRole('checkbox')     
+        userEvent.click(checkbox)
+        const sunLogo= document.querySelector('.iconTheme')
+        expect(sunLogo).toHaveClass('darkTheme')
+
     })
 })
 
@@ -54,17 +61,6 @@ describe('SwitcherTheme tests: defecto darkTheme', () => {
         const currentStorage = localStorage.getItem('theme')
         expect(currentStorage).toMatch('clearTheme')
     })
-    test('debe guardar en el localStorage()', () => {    
-        const beforeStorage = localStorage.getItem('theme')
-        console.log("storage "+storage.get("theme"))
-        console.log("local "+beforeStorage)
-        screen.debug()
-
-        // const checkbox = screen.getByRole('checkbox')
-        // userEvent.click(checkbox)
-        // const afterStorage = storage.get('theme')
-        // console.log(afterStorage)
-        // expect(beforeStorage).not.toMatch(afterStorage)
-    })
+    
 
 })
