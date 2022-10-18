@@ -1,8 +1,7 @@
 import { getByRole, render, screen, act } from "@testing-library/react";
-import { ThemeContext, ThemeProvider } from "../../context/ThemeContext";
+import { ThemeProvider } from "../../context/ThemeContext";
 import SwitcherTheme from "../../components/SwitcherTheme/SwitcherTheme";
 import userEvent from "@testing-library/user-event";
-import { spyOn } from "@jest/globals"
 import storage from "../../utils/storage"
 
 storage.get= jest.fn()
