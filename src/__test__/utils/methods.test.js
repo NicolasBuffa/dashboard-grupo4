@@ -13,7 +13,6 @@ describe("TEST de getProductAPI y getPorductsAPI", () => {
   test("debe de retornar un producto en formato objeto", async () => {
     const data = await getProductAPI(3);
     const product = await data.json();
-    console.log(product);
 
     expect(product.status).not.toBe(404);
     expect(product).toBeTruthy();

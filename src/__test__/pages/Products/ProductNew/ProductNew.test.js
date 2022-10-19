@@ -1,4 +1,4 @@
-import ProductView from "../../../../pages/Products/ProductView/ProductView";
+import ProductNew from "../../../../pages/Products/ProductNew/ProductNew";
 import { render, screen } from "@testing-library/react";
 
 jest.mock("react-router-dom", () => ({
@@ -6,9 +6,9 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => jest.fn(),
 }));
 
-describe("TEST ProductView", () => {
+describe("TEST productNre", () => {
   test("debe hacer match con el snapShot", () => {
-    const { container } = render(<ProductView />);
+    const { container } = render(<ProductNew />);
     expect(container).toMatchSnapshot();
   });
 });
