@@ -14,7 +14,7 @@ const Header = ({children}) => {
   
   
   return (
-    <header id='Header' className="Header">
+    <header className="Header">
         <MenuButtonMobile classBtn={input} btnControler={()=>{ButtonControler()}}/>
         {children}
     </header>
