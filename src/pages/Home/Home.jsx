@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+///No se teste por que teste el componeten HomeComponent
 import React from "react";
 import Header from "../../components/Header/Header";
 import HeaderContent from "../../components/Header/HeaderContent/HeaderContent";

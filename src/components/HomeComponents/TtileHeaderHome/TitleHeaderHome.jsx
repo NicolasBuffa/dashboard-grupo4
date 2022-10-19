@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+/* istanbul ignore file */
+
 
 function TitleHeaderHome() {
-  const url = "http://localhost:4000/api/user/1";
-  const [nombre, setNombre] = useState("Olivia");
+  
+const nombre= 'Olivia'
 
   return <h2>¡Hola {nombre}!</h2>;
 }
