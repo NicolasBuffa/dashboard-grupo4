@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from '../pages/Home/Home';
 import ProductList from '../pages/Products/ProductsList/ProductsList.jsx';
 import ProductNew from '../pages/Products/ProductNew/ProductNew';
@@ -7,12 +7,10 @@ import Tienda from '../pages/Tienda/Tienda';
 import React from 'react'
 import Page404 from '../pages/404/Page404';
 
-
 const AppRoutes = () => {
   return (
  
     <Routes>
-
       <Route path='/' element={<Home />} />
       <Route path='/home' element={<Home />} />
       <Route path='/products' element={<ProductList />} />
