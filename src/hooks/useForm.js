@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { updateProduct } from "../utils/handlers";
+import { createNreProduct, updateProduct } from "../utils/handlers";
 
 export const useForm = (initialForm) => {
   const navigate = useNavigate();
@@ -32,15 +32,7 @@ export const useForm = (initialForm) => {
   };
   const handleSubmitNewProduct = async (ev) => {
     ev.preventDefault();
-    fetch("http://localhost:4000/api/product", {
-      method: "POST",
-      body: JSON.stringify({
-        ...formState,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    }).then((response) =>
+    createNreProduct(formState).then((response) =>
       response.status === 201
         ? navigate("/products")
         : console.log(response.status)
