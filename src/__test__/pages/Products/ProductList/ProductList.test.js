@@ -12,6 +12,12 @@ import productsJson from "..//../../products.json";
 import ProductList from "../../../../pages/Products/ProductsList/ProductsList";
 import { wait } from "@testing-library/user-event/dist/utils";
 
+//
+// const timer = require("../timerGame");
+
+// jest.useFakeTimers();
+// jest.spyOn(global, "setTimeout");
+//
 jest.mock("../../../../utils/methods");
 
 describe("TESTS API EXITOSA ", () => {
@@ -43,6 +49,7 @@ describe("TESTS API EXITOSA ", () => {
       expect(pathName).toBe(`/products/${i + 1}`);
     });
   });
+
   test("Exista input search al renderizar la page en tamaño mayor a 576px", async () => {
     window.innerWidth = 577;
     await act(async () => {
@@ -121,4 +128,22 @@ describe("TESTS API FALLA", () => {
     );
     expect(mensajeError).toBeInTheDocument();
   });
+
+  // test("Debe mostrar la cantidad de articulos", () => {
+  //   setTimeout(async () => {
+  //
+  //   }, 3000);
+
+  //   // Saltamos el spiner
+
+  //   // Seleccionar los articulo
+
+  //   // Article debe ser igual que lenght de producjs
+  // });
+
+  // test("waits 1 second before ending the game", () => {
+  //   // timer();
+  //   expect(setTimeout).toHaveBeenCalledTimes(1);
+  //   expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+  // });
 });

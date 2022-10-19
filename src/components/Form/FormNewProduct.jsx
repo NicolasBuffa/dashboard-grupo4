@@ -46,7 +46,7 @@ function FormNewProduct({ product }) {
   return (
     <>
       {/* Componente form */}
-      <form onSubmit={handleSubmitNewProduct} action="submit">
+      <form role="form" onSubmit={handleSubmitNewProduct} action="submit">
         <label>Nombre</label>
         <input
           className="inputForm"
@@ -55,6 +55,7 @@ function FormNewProduct({ product }) {
           name="title"
           value={title}
           onChange={onInputChange}
+          role="title"
         />
 
         <label>Valor</label>
@@ -65,6 +66,7 @@ function FormNewProduct({ product }) {
           name="price"
           value={price}
           onChange={onInputChange}
+          role="price"
         />
 
         <label>Stock</label>
@@ -86,6 +88,7 @@ function FormNewProduct({ product }) {
             onChange={(e) => {
               onInputChange(e);
             }}
+            role="stock"
           />
           <button
             className="buttonStock"
@@ -108,8 +111,8 @@ function FormNewProduct({ product }) {
         />
 
         <label>Tienda</label>
-        <select className="inputForm" name="" id="">
-        <option selected="selected" value="tienda1">Olivia Store</option>
+        <select defaultValue="store2" className="inputForm" name="" id="">
+          <option value="tienda1">Olivia Store</option>
           <option value="store2">Store 2</option>
           <option value="store3">Store 3</option>
           <option value="store4">Store 4</option>
@@ -138,11 +141,7 @@ function FormNewProduct({ product }) {
           <h5>Imagenes Actuales</h5>
           {formState.images.map((image, index) => {
             return (
-              <CardImage
-                image={image}
-                index={index}
-                key={image + index}
-              />
+              <CardImage image={image} index={index} key={image + index} />
             );
           })}
         </div>
@@ -150,7 +149,9 @@ function FormNewProduct({ product }) {
           <button type="button" className="submitButton" onClick={onResetForm}>
             Cancelar
           </button>
-          <button className="submitButton">Guardar </button>
+          <button role="submmitButton" className="submitButton">
+            Guardar{" "}
+          </button>
         </div>
       </form>
       {/* Componente form fin */}

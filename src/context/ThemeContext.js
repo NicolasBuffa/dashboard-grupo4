@@ -1,9 +1,10 @@
 import { useState, createContext } from 'react'
+import storage  from '../utils/storage'
 
 export const ThemeContext =createContext()
 
 export const ThemeProvider = ({children}) => {
-    const [ theme, setTheme ] = useState(window.localStorage.getItem("theme")||window.localStorage.setItem("theme","clearTheme"))
+    const [ theme, setTheme ] = useState(storage.get('theme')||storage.set("theme","clearTheme"))
 
     const value = {
       theme,

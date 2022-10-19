@@ -48,7 +48,7 @@ function Form({ product }) {
   return (
     <>
       {/* Componente form */}
-      <form onSubmit={handleSubmit} action="submit">
+      <form role="form" onSubmit={handleSubmit} action="submit">
         <label>Nombre</label>
         <input
           className="inputForm"
@@ -57,6 +57,7 @@ function Form({ product }) {
           name="title"
           value={title}
           onChange={onInputChange}
+          role="title"
         />
 
         <label>Valor</label>
@@ -68,6 +69,7 @@ function Form({ product }) {
           min="0"
           value={price}
           onChange={onInputChange}
+          role="price"
         />
 
         <label>Stock</label>
@@ -90,6 +92,7 @@ function Form({ product }) {
             onChange={(e) => {
               onInputChange(e);
             }}
+            role="stock"
           />
           <button
             className="buttonStock"
@@ -112,8 +115,8 @@ function Form({ product }) {
         />
 
         <label>Tienda</label>
-        <select className="inputForm" name="" id="" >
-          <option selected="selected" value="tienda1">Olivia Store</option>
+        <select defaultValue="store2" className="inputForm" name="" id="">
+          <option value="tienda1">Olivia Store</option>
           <option value="store2">Store 2</option>
           <option value="store3">Store 3</option>
           <option value="store4">Store 4</option>
@@ -156,7 +159,9 @@ function Form({ product }) {
           <button type="button" className="submitButton" onClick={onResetForm}>
             Cancelar
           </button>
-          <button className="submitButton">Guardar </button>
+          <button role="submmitButton" className="submitButton">
+            Guardar{" "}
+          </button>
         </div>
       </form>
     </>

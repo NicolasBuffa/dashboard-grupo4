@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { createNreProduct, updateProduct } from "../utils/handlers";
 
 export const useForm = (initialForm) => {
   const navigate = useNavigate();
@@ -16,10 +17,10 @@ export const useForm = (initialForm) => {
     }
   };
 
-  const handleIncrement = ({ target }) => {
-    setFormState({ ...formState, stock: formState.stock + 1 });
+  const handleIncrement = () => {
+    setFormState((current) => ({ ...current, stock: formState.stock + 1 }));
   };
-  const handleDecrement = ({ target }) => {
+  const handleDecrement = () => {
     if (formState.stock >= 0) {
       setFormState({ ...formState, stock: formState.stock - 1 });
     }
@@ -31,41 +32,19 @@ export const useForm = (initialForm) => {
   };
   const handleSubmitNewProduct = async (ev) => {
     ev.preventDefault();
-    fetch("http://localhost:4000/api/product", {
-      method: "POST",
-      body: JSON.stringify({
-        ...formState,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      // .then((response) => response.json())
-      // .then((json) => console.log(json));
-      .then((response) =>
-        response.status === 201
-          ? navigate("/products")
-          : console.log(response.status)
-      );
+    createNreProduct(formState).then((response) =>
+      response.status === 201
+        ? navigate("/products")
+        : console.log(response.status)
+    );
   };
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    fetch("http://localhost:4000/api/product", {
-      method: "PUT",
-      body: JSON.stringify({
-        ...formState,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      // .then((response) => response.json())
-      // .then((json) => console.log(json))
-      .then((response) =>
-        response.status === 200
-          ? navigate("/products")
-          : console.log(response.status)
-      );
+    updateProduct(formState).then((response) =>
+      response.status === 200
+        ? navigate("/products")
+        : console.log(response.status)
+    );
   };
   const handdleDelete = async (ev) => {
     ev.preventDefault();

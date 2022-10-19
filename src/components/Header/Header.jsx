@@ -15,7 +15,6 @@ const Header = ({children}) => {
   
   return (
     <header className="Header">
-        <MenuButtonMobile classBtn={input} btnControler={()=>{ButtonControler()}}/>
         {children}
     </header>
   )

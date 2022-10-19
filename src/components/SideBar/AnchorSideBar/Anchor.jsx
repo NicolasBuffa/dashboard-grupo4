@@ -1,15 +1,12 @@
-import React, { useEffect, useRef } from 'react'
-import './Anchor.css'
-import index from '../../../assets/home.svg'
-import product from '../../../assets/package-variant-closed.svg'
-import store from '../../../assets/store.svg'
-import { NavLink } from 'react-router-dom'
-
+import React, { useRef } from "react";
+import "./Anchor.css";
+import index from "../../../assets/home.svg";
+import product from "../../../assets/package-variant-closed.svg";
+import store from "../../../assets/store.svg";
+import { NavLink } from "react-router-dom";
 
 export const Anchor = () => {
     const focusIndex= useRef()
-
-
 
     return (
         <article className='sideBar--buttons icon'>
