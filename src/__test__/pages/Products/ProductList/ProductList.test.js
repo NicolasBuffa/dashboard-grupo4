@@ -8,6 +8,12 @@ import ProductList from "../../../../pages/Products/ProductsList/ProductsList";
 
 // jest.mock("react-router-dom");
 
+//
+// const timer = require("../timerGame");
+
+// jest.useFakeTimers();
+// jest.spyOn(global, "setTimeout");
+//
 jest.mock("../../../../utils/methods");
 describe("TEST LIST ", () => {
   beforeEach(() => {
@@ -34,8 +40,25 @@ describe("TEST LIST ", () => {
   test("Debe mostrar el componente padre", async () => {
     await act(async () => {
       let component = render(<ProductList />, { wrapper: MemoryRouter });
+      expect(component).toMatchSnapshot();
     });
-    // expect(component).toMatchSnapshot();
-    screen.debug();
   });
+
+  // test("Debe mostrar la cantidad de articulos", () => {
+  //   setTimeout(async () => {
+  //
+  //   }, 3000);
+
+  //   // Saltamos el spiner
+
+  //   // Seleccionar los articulo
+
+  //   // Article debe ser igual que lenght de producjs
+  // });
+
+  // test("waits 1 second before ending the game", () => {
+  //   // timer();
+  //   expect(setTimeout).toHaveBeenCalledTimes(1);
+  //   expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+  // });
 });

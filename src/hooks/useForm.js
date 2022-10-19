@@ -16,10 +16,10 @@ export const useForm = (initialForm) => {
     }
   };
 
-  const handleIncrement = ({ target }) => {
-    setFormState({ ...formState, stock: formState.stock + 1 });
+  const handleIncrement = () => {
+    setFormState((current) => ({ ...current, stock: formState.stock + 1 }));
   };
-  const handleDecrement = ({ target }) => {
+  const handleDecrement = () => {
     if (formState.stock >= 0) {
       setFormState({ ...formState, stock: formState.stock - 1 });
     }
