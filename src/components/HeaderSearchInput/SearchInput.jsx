@@ -1,24 +1,28 @@
 import { useState } from "react";
 import magnify from "../../assets/magnify.svg";
-import useWindowWidth from "../../hooks/useWindowWidth";
 import "./SearchInput.css";
 import { getProductsAPI } from "../../utils/methods";
-export const SearchInput = ({ setProducts, active, setActive }) => {
+
+export const SearchInput = ({
+  setProducts,
+  active,
+  setActive,
+  windowWidth,
+}) => {
   const [value, setValue] = useState("");
-  const [searchInputProducts, setSearchInputProducts] = useState();
-  const windowWidth = useWindowWidth();
+  const [searchInputProducts, setSearchInputProducts] = useState([]);
 
   async function handleInput(value) {
+    setValue(value);
     try {
       const response = await getProductsAPI();
       const data = await response.json();
       setSearchInputProducts(data);
-      setValue(value.toLowerCase());
       const filterProducts = searchInputProducts.filter(
         (product) =>
-          product.title.toLowerCase().includes(value) ||
-          product.category.toLowerCase().includes(value) ||
-          product.description.toLowerCase().includes(value) ||
+          product.title.toLowerCase().includes(value.toLowerCase()) ||
+          product.category.toLowerCase().includes(value.toLowerCase()) ||
+          product.description.toLowerCase().includes(value.toLowerCase()) ||
           product.id === Number(value)
       );
       setProducts(filterProducts);

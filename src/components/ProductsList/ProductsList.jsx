@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ClockLoader from "react-spinners/ClockLoader";
 import MoonLoader from "react-spinners/MoonLoader";
 import notFound from "../../assets/notFound.png";
 import "./ProductsList.css";
-import { getProductsAPI } from "../../utils/methods";
 
 export default function ProductsList({ products, loading, loadingImage }) {
   return (
@@ -19,12 +17,8 @@ export default function ProductsList({ products, loading, loadingImage }) {
           />
         </div>
       ) : products.length ? (
-        products.map((product, index) => (
-          <article
-            className="productList__article"
-            key={product.id}
-            data-testid={`productList_article-${index}`}
-          >
+        products.map((product) => (
+          <article className="productList__article" key={product.id}>
             <Link to={`/products/${product.id}`}>
               {loadingImage ? (
                 <div className="productList__imagesLoader">

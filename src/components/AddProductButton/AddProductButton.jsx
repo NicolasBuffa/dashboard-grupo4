@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import addImg from "../../assets/add.png";
-import useWindowWidth from "../../hooks/useWindowWidth";
 import "./AddProductButton.css";
 
-export default function AddProductMobileButton({ inputSearchActive }) {
-  const windowWidth = useWindowWidth();
+export default function AddProductMobileButton({
+  inputSearchActive,
+  windowWidth,
+}) {
+  //const windowWidth = useWindowWidth();
   return (
     <Link
       to={"/products/new"}
