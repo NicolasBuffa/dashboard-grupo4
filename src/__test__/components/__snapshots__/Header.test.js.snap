@@ -3,9 +3,8 @@
 exports[`Header tests: Debe el Header permanecer siempre visible 1`] = `
 <header
   class="Header"
-  id="Header"
 >
-  <button
+  <span
     class="menuButton MenuButtonMobileDesactivate"
   >
     <img
@@ -13,6 +12,6 @@ exports[`Header tests: Debe el Header permanecer siempre visible 1`] = `
       class="imgMenuButton icon"
       src="menu.svg"
     />
-  </button>
+  </span>
 </header>
 `;

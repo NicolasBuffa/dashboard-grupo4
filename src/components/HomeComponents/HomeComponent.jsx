@@ -26,10 +26,11 @@ function HomeComponent() {
     url2: "/store/new",
     utlType2: "Agregar Tienda",
   };
-  useEffect(() => {
-    getProductsAPI()
-      .then((res) => res.json())
-      .then((data) =>
+  async function getData (){
+    try{
+    const response = await getProductsAPI();
+    const data = await response.json();
+
         setDatos([
           {
             ...products,
@@ -40,8 +41,16 @@ function HomeComponent() {
             count: 10,
           },
         ])
-      );
+      
+  }catch(error){
+return error
+  }
+}
+  useEffect(() => {
+  getData();
   }, []);
+
+
 
   return (
     <>
