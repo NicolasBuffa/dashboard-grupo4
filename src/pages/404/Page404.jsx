@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from 'react'
 import Component404 from '../../components/Components404/Component404'
 import Header from "../../components/Header/Header";
