@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ClockLoader from "react-spinners/ClockLoader";
 import MoonLoader from "react-spinners/MoonLoader";
 import notFound from "../../assets/notFound.png";
 import "./ProductsList.css";
-import { getProductsAPI } from "../../utils/methods";
 
 export default function ProductsList({ products, loading, loadingImage }) {
   return (

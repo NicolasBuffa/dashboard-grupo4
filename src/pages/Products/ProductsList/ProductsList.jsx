@@ -27,13 +27,13 @@ function ProductList() {
       setLoading(false);
       getProducts();
       delayProductsImage();
-    }, Math.random() * 2500);
+    }, 1000);
   }
   function delayProductsImage() {
     //Carga de imagen
     setTimeout(() => {
       setLoadingImage(false);
-    }, 3000);
+    }, 1000);
   }
 
   async function getProducts() {
@@ -64,8 +64,12 @@ function ProductList() {
             setProducts={setProducts}
             active={inputSearchActive}
             setActive={setInputSearchActive}
+            windowWidth={windowWidth}
           />
-          <AddProductButton inputSearchActive={inputSearchActive} />
+          <AddProductButton
+            inputSearchActive={inputSearchActive}
+            windowWidth={windowWidth}
+          />
         </HeaderContent>
       </Header>
       <ProductListComponent

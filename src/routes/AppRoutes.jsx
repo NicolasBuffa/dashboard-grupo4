@@ -9,7 +9,6 @@ import Page404 from '../pages/404/Page404';
 
 const AppRoutes = () => {
   return (
- 
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/home' element={<Home />} />
@@ -20,9 +19,7 @@ const AppRoutes = () => {
       <Route path='/store/new' element={<Tienda />} />
       <Route path='/*' element={<Page404/>}/>
     </Routes>
-  )
-}
+  );
+};
 
-export default AppRoutes
-
-
+export default AppRoutes;
