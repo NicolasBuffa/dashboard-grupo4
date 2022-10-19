@@ -1,15 +1,18 @@
 @media (min-width:1024px) {
 
     .menuButtonClose {
+        all: unset;
         display: none;
     }
 }
 
 .menuButtonCloseUp {
+    all: unset;
     display: none;
 }
 
 .menuButtonClose {
+    all: unset;
     display: block;
     position: fixed;
     z-index: 98;

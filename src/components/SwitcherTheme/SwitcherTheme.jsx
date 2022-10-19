@@ -3,6 +3,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import sun from "../../assets/sun-fill.svg";
 import moon from "../../assets/moon-fill.svg";
 import "./Switcher.css";
+import storage from "../../utils/storage";
 
 const SwitcherTheme = () => {
   const { theme, toggle: switcherFunc } = useContext(ThemeContext);
@@ -11,18 +12,18 @@ const SwitcherTheme = () => {
 
   const storageChange = () => {
     const currentTheme =
-      window.localStorage.getItem("theme") === "clearTheme"
+      storage.get("theme") === "clearTheme"
         ? "darkTheme"
         : "clearTheme";
-    window.localStorage.setItem("theme", currentTheme);
+    storage.set("theme", currentTheme);
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme");
+    const localTheme = storage.get("theme");
     if (localTheme) {
       setLocalTheme(localTheme);
     } else {
-      window.localStorage.setItem("theme", "clearTheme");
+      storage.set("theme", "clearTheme");
     }
   }, []);
 
@@ -34,7 +35,7 @@ const SwitcherTheme = () => {
       <label className="switcher">
         <input
           type="checkbox"
-          defaultChecked={window.localStorage.getItem("theme") === "darkTheme"}
+          defaultChecked={storage.get("theme") === "darkTheme"}
           onChange={() => {
             switcherFunc();
             storageChange();
