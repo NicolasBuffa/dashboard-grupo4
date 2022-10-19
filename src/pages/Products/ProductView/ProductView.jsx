@@ -1,6 +1,6 @@
 import "./ProductView.css";
 
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useForm } from "../../../hooks/useForm";
 import { useGetOneProduct } from "../../../hooks/useGetOneProduct";
@@ -24,33 +24,17 @@ let initialForm = {
 };
 
 function ProductView() {
-  const { id } = useParams();
-
   const { product } = useGetOneProduct(initialForm);
 
-  const {
-    formState,
-    onInputChange,
-    handdleAddImage,
-    handleDecrement,
-    handleIncrement,
-    handleSubmit,
-    handdleDelete,
-    onResetForm,
-    price,
-    description,
-    title,
-    stock,
-    images,
-  } = useForm(initialForm);
-  const showImage = product.images;
+  const { handdleDelete } = useForm(initialForm);
 
   return (
     <div className="productView-container">
       <Header>
         <HeaderContent>
           <h2>
-            <Link to="/products">Productos </Link> <span>&#62; #</span> {product.id}
+            <Link to="/products">Productos </Link> <span>&#62; #</span>{" "}
+            {product.id}
           </h2>
         </HeaderContent>
         <HeaderContent>
