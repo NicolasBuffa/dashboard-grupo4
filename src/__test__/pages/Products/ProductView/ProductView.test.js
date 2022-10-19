@@ -1,11 +1,23 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-
+import {
+  act,
+  render,
+  screen,
+  fireEvent,
+  renderHook,
+} from "@testing-library/react";
 import Form from "../../../../components/Form/Form";
+import { useForm, handleSubmit } from "../../../../hooks/useForm";
+import { MemoryRouter, useHref } from "react-router-dom";
+import React from "react";
+import userEvent from "@testing-library/user-event";
+import { updateProduct } from "..//..//..//..//utils/handlers";
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: () => jest.fn(),
 }));
+
+jest.mock("..//..//..//..//utils/handlers");
 
 describe("TEST vista ProductView", () => {
   let product = {
@@ -21,23 +33,44 @@ describe("TEST vista ProductView", () => {
       count: "",
     },
   };
+  beforeEach(() => {
+    updateProduct.mockResolvedValue({
+      status: 200,
+    });
+    render(<Form product={product} />);
+  });
+  test("debe de hacer match con el snpatshot", () => {
+    const { container } = render(<Form product={product} />);
+    expect(container).toMatchSnapshot();
+  });
+  test("debe hacer submit del form", async () => {
+    const inputTitle = screen.getByRole("title");
+    const inputStock = screen.getByRole("stock");
+    const inputPrice = screen.getByRole("price");
 
-  render(<Form product={product} />);
-  // test("debe cambiar el valor de input", () => {
-  //   const input = screen.getByRole("title");
-  //   fireEvent.input(input, { target: { value: "Saitama" } });
-  //   expect(input.value).toBe("Saitama");
-  // });
+    const form = screen.getByRole("form");
+    const button = screen.getByRole("submmitButton");
 
-  test("debe hacer submit del form", () => {
-    // render(<Form product={product} />);
+    const title = "Saitama";
+    const price = "3";
+    const stock = "3";
 
-    const inputValue = "Saitama";
+    // screen.logTestingPlaygroundURL();
+    fireEvent.input(inputTitle, { target: { value: title } });
+    fireEvent.input(inputPrice, { target: { value: price } });
+    fireEvent.input(inputStock, { target: { value: stock } });
 
-    const input = screen.getByRole("title"); // esto tambien
-    const form = screen.getByRole("form"); // esto esta mal
+    await act(async () => {
+      await userEvent.click(button);
+    });
 
-    fireEvent.input(input, { target: { value: inputValue } });
-    fireEvent.submit(form);
+    expect(inputTitle.value).toBe(title);
+    expect(inputPrice.value).toBe(price);
+    expect(inputStock.value).toBe(stock);
+    expect(updateProduct).toHaveBeenCalled();
+    // expect(updateProduct.mock.calls[0][0].title).toBe(title);
+    // expect(updateProduct.mock.calls[0][0].stock).toBe(stock);
+    // expect(updateProduct.mock.calls[0][0].price).toBe(price);
+    // expect(handleSubmit()).toHaveBeenCalledTimes(1);
   });
 });
