@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header tests: Debe el Header permanecer siempre visible 1`] = `
+<header
+  class="Header"
+  id="Header"
+>
+  <button
+    class="menuButton MenuButtonMobileDesactivate"
+  >
+    <img
+      alt="burgerButton"
+      class="imgMenuButton icon"
+      src="menu.svg"
+    />
+  </button>
+</header>
+`;
