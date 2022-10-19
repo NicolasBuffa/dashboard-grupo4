@@ -5,7 +5,7 @@ const MenuButtonMobileClose = ({ reference, fn}) => {
 
 
 
-  return (<div ref={reference} className='menuButtonCloseUp' onClick={fn}></div>
+  return (<button ref={reference} className='menuButtonCloseUp' onClick={fn}></button>
   )
 }
 

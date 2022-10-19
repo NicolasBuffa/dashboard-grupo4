@@ -9,8 +9,6 @@ import { NavLink } from 'react-router-dom'
 export const Anchor = () => {
     const focusIndex= useRef()
 
-
-
     return (
         <article className='sideBar--buttons icon'>
             <NavLink className={({ isActive }) => isActive ? "sideBar--button_index active" : "sideBar--button_index"} ref={focusIndex} to='/home' ><img src={index} />Inicio</NavLink>
