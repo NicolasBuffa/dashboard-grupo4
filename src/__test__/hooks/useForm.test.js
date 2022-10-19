@@ -45,10 +45,49 @@ describe("Pruebas en useForm", () => {
     expect(result.current.formState.name).toBe(newValue);
   });
 
-  test("debe de cambiar el stock del formulario", () => {});
-  test("debe de cambiar el price del formulario", () => {});
-  test("debe de cambiar el desc del formulario", () => {});
-  test("debe de cambiar el img del formulario", () => {});
+  test("debe de cambiar el stock del formulario", () => {
+    const newValue = 3;
+    const { result } = renderHook(() => useForm(initialForm));
+    const { onInputChange } = result.current;
+
+    act(() => {
+      onInputChange({ target: { name: "stock", value: newValue } });
+    });
+    expect(result.current.stock).toBe(newValue);
+    expect(result.current.formState.stock).toBe(newValue);
+  });
+  test("debe de cambiar el price del formulario", () => {
+    const newValue = 3;
+    const { result } = renderHook(() => useForm(initialForm));
+    const { onInputChange } = result.current;
+
+    act(() => {
+      onInputChange({ target: { name: "price", value: newValue } });
+    });
+    expect(result.current.price).toBe(newValue);
+    expect(result.current.formState.price).toBe(newValue);
+  });
+  test("debe de cambiar el desc del formulario", () => {
+    const newValue = "PRUEBA TEST";
+    const { result } = renderHook(() => useForm(initialForm));
+    const { onInputChange } = result.current;
+
+    act(() => {
+      onInputChange({ target: { name: "description", value: newValue } });
+    });
+    expect(result.current.description).toBe(newValue);
+    expect(result.current.formState.description).toBe(newValue);
+  });
+  test("debe de cambiar el img del formulario", () => {
+    const newValue = ["URL/"];
+    const { result } = renderHook(() => useForm(initialForm));
+    const { onInputChange, onResetForm } = result.current;
+    act(() => {
+      onInputChange({ target: { name: "images", value: newValue } });
+    });
+
+    expect(result.current.images).toEqual(expect.any(Array));
+  });
 
   test("debe de realizar el reset del formulario", () => {
     const newValue = "Juan";

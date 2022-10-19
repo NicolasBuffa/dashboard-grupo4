@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST CardImage should first 1`] = `
+<div>
+  <div
+    class="productView-container_actualImgDetail"
+  >
+    <div
+      class="picture"
+    >
+      <img
+        alt=""
+      />
+    </div>
+    <button
+      class="buttonProductView"
+    >
+      Quitar
+       
+    </button>
+  </div>
+</div>
+`;

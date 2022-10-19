@@ -29,9 +29,6 @@ function ProductNew() {
   const params = useParams();
 
   const { formState } = useForm(initialForm);
-  useEffect(() => {
-    console.log(formState);
-  }, [formState]);
 
   return (
     <div className="productView-container">

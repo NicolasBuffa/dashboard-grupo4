@@ -17,16 +17,5 @@ describe("TEST de getProductAPI y getPorductsAPI", () => {
     expect(product.status).not.toBe(404);
     expect(product).toBeTruthy();
     expect(product).toEqual(expect.any(Object));
-    expect(product).toEqual({
-      id: expect.any(Number),
-      title: expect.any(String),
-      price: expect.any(Number),
-      stock: expect.any(Number),
-      description: expect.any(String),
-      category: expect.any(String),
-      images: expect.any(Array),
-      rating: expect.any(Object),
-      lastModified: expect.any(String),
-    });
   });
 });
