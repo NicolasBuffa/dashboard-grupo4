@@ -10,21 +10,24 @@ export const SearchInput = ({
   windowWidth,
 }) => {
   const [value, setValue] = useState("");
-  const [searchInputProducts, setSearchInputProducts] = useState([]);
+  //const [searchInputProducts, setSearchInputProducts] = useState([]);
 
   async function handleInput(value) {
     setValue(value);
+    console.log(value);
     try {
       const response = await getProductsAPI();
       const data = await response.json();
-      setSearchInputProducts(data);
-      const filterProducts = searchInputProducts.filter(
+      // setSearchInputProducts(data);
+
+      const filterProducts = data.filter(
         (product) =>
           product.title.toLowerCase().includes(value.toLowerCase()) ||
           product.category.toLowerCase().includes(value.toLowerCase()) ||
           product.description.toLowerCase().includes(value.toLowerCase()) ||
           product.id === Number(value)
       );
+
       setProducts(filterProducts);
     } catch (error) {
       return error;

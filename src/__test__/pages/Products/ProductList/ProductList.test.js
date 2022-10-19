@@ -64,20 +64,33 @@ describe("TESTS API EXITOSA ", () => {
   test.only("Input search haga llamado a la API cuando el user tipea", async () => {
     const input = screen.getByPlaceholderText(/buscar productos/i);
     const textoPrueba = "Samsung";
+    const products = await screen.findAllByRole("article", undefined, {
+      timeout: 3000,
+    });
 
-    userEvent.click(input);
+    const productoFiltrado = [...productsJson].filter(
+      (product) =>
+        product.title.toLowerCase().includes(textoPrueba.toLowerCase()) ||
+        product.category.toLowerCase().includes(textoPrueba.toLowerCase()) ||
+        product.description.toLowerCase().includes(textoPrueba.toLowerCase()) ||
+        product.id === Number(textoPrueba)
+    );
+    console.log("Primer elemento ", productoFiltrado);
+
     await act(async () => {
-      userEvent.keyboard(textoPrueba);
+      userEvent.type(input, textoPrueba);
     });
 
-    await waitFor(async () => {
-      const products = await screen.findAllByRole("article");
-      console.log(products.length);
-      //expect(products.length).toBe(3);
-      screen.debug();
-    });
+    console.log("Products ", products);
 
-    expect(input).toHaveValue(textoPrueba);
+    // await waitFor(async () => {
+
+    // });
+
+    //expect(products.length).toBe(3);
+    screen.debug();
+
+    expect(products).toHaveLength(productoFiltrado.length);
   });
 
   test("Boton agregar producto exista en Desktop", () => {
