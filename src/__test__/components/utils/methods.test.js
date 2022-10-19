@@ -1,28 +1,30 @@
 import {getProductAPI , getProductsAPI } from './../../../utils/methods'
+import productosOriginal from './productsOriginal.json'
 
-const testProduct = {
-    "id": 3,
-    "title": "Samsung Universe #9",
-    "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-    "price": 1249,
+const testProduct =  {
+    "id": 1,
+    "title": "iPhone 9",
+    "description": "An apple mobile which is nothing like apple",
+    "price": 549,
     "rating": {
-        "rate": 4.09,
-        "count": 845
+      "rate": 4.69,
+      "count": 354
     },
-    "stock": 36,
+    "stock": 94,
     "category": "smartphones",
     "images": [
-        "https://dummyjson.com/image/i/products/3/1.jpg"
-    ],
-    "lastModified": "2022-10-12T12:27:14.975Z"
-}
-
-const testProducts =[] //sin importar aun
+      "https://dummyjson.com/image/i/products/1/1.jpg",
+      "https://dummyjson.com/image/i/products/1/2.jpg",
+      "https://dummyjson.com/image/i/products/1/3.jpg",
+      "https://dummyjson.com/image/i/products/1/4.jpg",
+      "https://dummyjson.com/image/i/products/1/thumbnail.jpg"
+    ]
+  }
 
 describe('Get one Product', () => {    
     
     test('Debe retornar status:200 la consulta satisfactoria',async () => { 
-        const response = await getProductAPI(3)
+        const response = await getProductAPI(1)
         expect(response.status).toBe(200);
     })
 
@@ -32,7 +34,7 @@ describe('Get one Product', () => {
     })
 
     test('Debe retornar un producto',async () => { 
-        const response = await getProductAPI(3)
+        const response = await getProductAPI(1)
         const data = await response.json()
         expect(data).toEqual(testProduct);
     })
@@ -45,9 +47,32 @@ describe('Get all Products', () => {
         expect(response.status).toBe(200);
     })
 
-    test('Debe retornar todos los productos',async () => { 
-        const response = await getProductsAPI()
-        const data = await response.json()
-        expect(data).toEqual(testProducts);
-    })
+    test("getOneProducts debe traer productos", async () => {
+        const data = await getProductsAPI();
+        const product = await data.json();
+    
+        expect(product.status).not.toBe(404);
+        expect(product.length).not.toBe(1);
+    });  
+
+    test("debe de retornar un producto en formato objeto", async () => {
+        const data = await getProductAPI(3);
+        const product = await data.json();
+    
+        expect(product.status).not.toBe(404);
+        expect(product).toBeTruthy();
+        expect(product).toEqual(expect.any(Object));
+        expect(product).toEqual({
+          id: expect.any(Number),
+          title: expect.any(String),
+          price: expect.any(Number),
+          stock: expect.any(Number),
+          description: expect.any(String),
+          category: expect.any(String),
+          images: expect.any(Array),
+          rating: expect.any(Object),
+        //lastModified: expect.any(String),
+        });
+    });
+
 })
