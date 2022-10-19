@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST vista ProductView debe de hacer match con el snpatshot 1`] = `
+<div>
+  <form
+    action="submit"
+    role="form"
+  >
+    <label>
+      Nombre
+    </label>
+    <input
+      class="inputForm"
+      name="title"
+      placeholder="inputValue"
+      role="title"
+      type="text"
+      value=""
+    />
+    <label>
+      Valor
+    </label>
+    <input
+      class="inputForm"
+      min="0"
+      name="price"
+      placeholder="inputValue"
+      role="price"
+      type="number"
+      value=""
+    />
+    <label>
+      Stock
+    </label>
+    <div>
+      <button
+        class="buttonStock"
+        type="button"
+      >
+        -
+      </button>
+      <input
+        class="inputForm"
+        min="0"
+        name="stock"
+        placeholder="inputValue"
+        role="stock"
+        type="number"
+        value=""
+      />
+      <button
+        class="buttonStock"
+        type="button"
+      >
+        +
+      </button>
+    </div>
+    <label>
+      Description
+    </label>
+    <textarea
+      class="inputForm"
+      name="description"
+      placeholder="inputValue"
+      rows="12"
+      type="text"
+    />
+    <label>
+      Tienda
+    </label>
+    <select
+      class="inputForm"
+      id=""
+      name=""
+    >
+      <option
+        value="tienda1"
+      >
+        Olivia Store
+      </option>
+      <option
+        selected=""
+        value="store2"
+      >
+        Store 2
+      </option>
+      <option
+        value="store3"
+      >
+        Store 3
+      </option>
+      <option
+        value="store4"
+      >
+        Store 4
+      </option>
+    </select>
+    <h3>
+      Galeria de Imagenes
+    </h3>
+    <label>
+      Nueva Imagen
+    </label>
+    <div
+      class="containerUploadImages"
+    >
+      <input
+        class="inputForm "
+        id="inputImg"
+        name="images"
+        type="text"
+      />
+      <button
+        class="subirImage"
+        type="button"
+      >
+        SUBIR IMAGEN
+      </button>
+    </div>
+    <div
+      class="productView-container_actualImg"
+    >
+      <h5>
+        Imagenes Actuales
+      </h5>
+    </div>
+    <div
+      class="containerSubmitButton"
+    >
+      <button
+        class="submitButton"
+        type="button"
+      >
+        Cancelar
+      </button>
+      <button
+        class="submitButton"
+        role="submmitButton"
+      >
+        Guardar
+         
+      </button>
+    </div>
+  </form>
+</div>
+`;
