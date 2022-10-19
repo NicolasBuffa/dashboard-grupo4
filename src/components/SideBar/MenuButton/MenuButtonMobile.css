@@ -1,8 +1,10 @@
 .MenuButtonMobileActive{
+    all: unset;
     display: none;
 
 }
 .MenuButtonMobileDesactivate{
+    all: unset;
     transition: all 0.5ms;
     display: block;
     position: fixed;
@@ -10,11 +12,8 @@
     top: 20px;
     z-index: 99;
     opacity: 1;
-}
-.MenuButtonMobileDesactivate{
     width: 40px;
     height: 40px;
-
 }
 .imgMenuButton{
     width: 30px;

@@ -4,9 +4,9 @@ import ProductList from '../pages/Products/ProductsList/ProductsList.jsx';
 import ProductNew from '../pages/Products/ProductNew/ProductNew';
 import ProductView from '../pages/Products/ProductView/ProductView.jsx';
 import Tienda from '../pages/Tienda/Tienda';
-
 import React from 'react'
 import Page404 from '../pages/404/Page404';
+
 
 const AppRoutes = () => {
   return (

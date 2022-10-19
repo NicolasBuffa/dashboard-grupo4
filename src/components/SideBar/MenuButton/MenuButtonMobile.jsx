@@ -6,7 +6,7 @@ import './MenuButtonMobile.css'
 const MenuButtonMobile = ({ classBtn, btnControler}) => {
 
     return (
-        <span className={`${classBtn}`} onClick={btnControler} ><img src={menu} className="imgMenuButton icon" alt="burgerButton" /></span>
+        <button className={`${classBtn}`} onClick={btnControler} ><img src={menu} className="imgMenuButton icon" alt="burgerButton" /></button>
     )
 }
 export default MenuButtonMobile
