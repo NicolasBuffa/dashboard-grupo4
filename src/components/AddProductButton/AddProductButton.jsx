@@ -11,6 +11,7 @@ export default function AddProductMobileButton({
     <Link
       to={"/products/new"}
       id="addProductBtn"
+      data-testid="linkAgregarProducto"
       style={inputSearchActive ? { display: "none" } : { display: "block" }}
     >
       {windowWidth > 576 ? (

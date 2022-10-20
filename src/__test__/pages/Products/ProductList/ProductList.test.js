@@ -1,23 +1,10 @@
-import {
-  render,
-  screen,
-  act,
-  fireEvent,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { getProductsAPI } from "../../../../utils/methods";
 import productsJson from "..//../../products.json";
 import ProductList from "../../../../pages/Products/ProductsList/ProductsList";
-import { wait } from "@testing-library/user-event/dist/utils";
 
-//
-// const timer = require("../timerGame");
-
-// jest.useFakeTimers();
-// jest.spyOn(global, "setTimeout");
-//
 jest.mock("../../../../utils/methods");
 
 describe("TESTS API EXITOSA ", () => {
@@ -33,7 +20,7 @@ describe("TESTS API EXITOSA ", () => {
       component = render(<ProductList />, { wrapper: MemoryRouter });
     });
   });
-
+  //COMPONENTE QUE LISTA PRODUCTOS
   test("Debe mostrar productos renderizados si no falla la API", async () => {
     const articles = await screen.findAllByRole("article", undefined, {
       timeout: 3000,
@@ -50,6 +37,7 @@ describe("TESTS API EXITOSA ", () => {
     });
   });
 
+  //INPUT DE BUSQUEDA DE PRODUCTOS
   test("Exista input search al renderizar la page en tamaño mayor a 576px", async () => {
     window.innerWidth = 577;
     await act(async () => {
@@ -68,42 +56,94 @@ describe("TESTS API EXITOSA ", () => {
 
     expect(input).not.toBeInTheDocument();
   });
-  test.only("Input search haga llamado a la API cuando el user tipea", async () => {
+  test("Hace llamado a la API si el usuario tipea en el buscador", async () => {
     const input = screen.getByPlaceholderText(/buscar productos/i);
     const textoPrueba = "Samsung";
-    const products = await screen.findAllByRole("article", undefined, {
-      timeout: 3000,
+    await act(async () => {
+      userEvent.type(input, textoPrueba);
     });
-
-    const productoFiltrado = [...productsJson].filter(
+    expect(getProductsAPI).toHaveBeenCalled();
+  });
+  test("Renderize los productos filtrados segun criterios de búsqueda", async () => {
+    const input = screen.getByPlaceholderText(/buscar productos/i);
+    const textoPrueba = "Samsung";
+    const productosFiltrado = [...productsJson].filter(
       (product) =>
         product.title.toLowerCase().includes(textoPrueba.toLowerCase()) ||
         product.category.toLowerCase().includes(textoPrueba.toLowerCase()) ||
         product.description.toLowerCase().includes(textoPrueba.toLowerCase()) ||
         product.id === Number(textoPrueba)
     );
-    console.log("Primer elemento ", productoFiltrado);
+    await act(async () => {
+      userEvent.type(input, textoPrueba);
+    });
+    const products = await screen.findAllByRole("article", undefined, {
+      timeout: 3000,
+    });
+
+    expect(products).toHaveLength(productosFiltrado.length);
+  });
+  test("Renderize pagina de error si no encuentra productos", async () => {
+    const input = screen.getByPlaceholderText(/buscar productos/i);
+    const textoPrueba = "TEXTO PRUEBA PARA QUE FALLE";
 
     await act(async () => {
       userEvent.type(input, textoPrueba);
     });
+    const errorMessage = await screen.findByText(
+      "Lo sentimos, producto no encontrado"
+    );
 
-    console.log("Products ", products);
-
-    // await waitFor(async () => {
-
-    // });
-
-    //expect(products.length).toBe(3);
-    screen.debug();
-
-    expect(products).toHaveLength(productoFiltrado.length);
+    expect(errorMessage).toBeInTheDocument();
   });
 
-  test("Boton agregar producto exista en Desktop", () => {
+  //BOTON AGREGAR PRODUCTO
+  test("Boton agregar producto exista en Desktop", async () => {
+    window.innerWidth = 1024;
+    await act(async () => {
+      window.dispatchEvent(new Event("resize"));
+    });
     const input = screen.getByText("Agregar producto");
-    const anchosPantallaParaTestear = [500, 1024];
-    anchosPantallaParaTestear.forEach();
+    expect(input).toBeInTheDocument();
+  });
+  test("Boton agregar redirija a product page", () => {
+    const input = screen.getByText("Agregar producto");
+    const pathName = input.getAttribute("href");
+    expect(pathName).toBe("/products/new");
+  });
+  test("Boton agregar producto exista en Mobile", async () => {
+    window.innerWidth = 400;
+    await act(async () => {
+      window.dispatchEvent(new Event("resize"));
+    });
+    const input = screen.getByAltText("add Product");
+    expect(input).toBeInTheDocument();
+  });
+
+  test.only("Boton agregar desaparece en mobile si se abre el input en mobile", async () => {
+    window.innerWidth = 400;
+    await act(async () => {
+      window.dispatchEvent(new Event("resize"));
+    });
+    const lupa = screen.queryByTestId("inputSearchContainer");
+    userEvent.click(lupa);
+
+    const linkAgergarProducto = screen.getByTestId("linkAgregarProducto");
+
+    expect(linkAgergarProducto).not.toBeVisible();
+  });
+
+  //H2
+  test("Titulo h2 del header desaparece cuando se abre el input en mobile", async () => {
+    window.innerWidth = 400;
+    await act(async () => {
+      window.dispatchEvent(new Event("resize"));
+    });
+    const lupa = screen.queryByTestId("inputSearchContainer");
+    const h2 = screen.getByRole("heading", { name: "Product List" });
+    userEvent.click(lupa);
+
+    expect(h2).not.toBeVisible();
   });
 });
 
@@ -117,7 +157,7 @@ describe("TESTS API FALLA", () => {
       component = render(<ProductList />, { wrapper: MemoryRouter });
     });
   });
-
+  //COMPONENTE QUE LISTA PRODUCTOS
   test("Debe mostrar mensaje de error si falla la API", async () => {
     const mensajeError = await screen.findByText(
       /Lo sentimos, producto no encontrado/i,
@@ -128,22 +168,4 @@ describe("TESTS API FALLA", () => {
     );
     expect(mensajeError).toBeInTheDocument();
   });
-
-  // test("Debe mostrar la cantidad de articulos", () => {
-  //   setTimeout(async () => {
-  //
-  //   }, 3000);
-
-  //   // Saltamos el spiner
-
-  //   // Seleccionar los articulo
-
-  //   // Article debe ser igual que lenght de producjs
-  // });
-
-  // test("waits 1 second before ending the game", () => {
-  //   // timer();
-  //   expect(setTimeout).toHaveBeenCalledTimes(1);
-  //   expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
-  // });
 });

@@ -15,11 +15,13 @@ function ProductList() {
   const [loading, setLoading] = useState(false); //Me lo puedo llevar
   const [loadingImage, setLoadingImage] = useState(false); //Me lo puedo llevar
 
+  //Borrar el getProducts linea 22 de useEffect y descomentar linea 19 20 23 para que anden los spinners
   useEffect(() => {
-    setLoading(true);
-    setLoadingImage(true);
+    //setLoading(true);
+    //setLoadingImage(true);
     //Carga de productos e imagenes
-    delayProductList();
+    getProducts();
+    // delayProductList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   function delayProductList() {
@@ -27,7 +29,7 @@ function ProductList() {
       setLoading(false);
       getProducts();
       delayProductsImage();
-    }, 1000);
+    }, 2500);
   }
   function delayProductsImage() {
     //Carga de imagen

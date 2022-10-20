@@ -10,15 +10,12 @@ export const SearchInput = ({
   windowWidth,
 }) => {
   const [value, setValue] = useState("");
-  //const [searchInputProducts, setSearchInputProducts] = useState([]);
 
   async function handleInput(value) {
     setValue(value);
-    console.log(value);
     try {
       const response = await getProductsAPI();
       const data = await response.json();
-      // setSearchInputProducts(data);
 
       const filterProducts = data.filter(
         (product) =>
@@ -45,6 +42,7 @@ export const SearchInput = ({
         className="inputSearchContainer"
         style={active ? { maxWidth: `${75}vw`, width: `${75}vw` } : null}
         onClick={mobileBehavior}
+        data-testid="inputSearchContainer"
       >
         <button
           className="btnCloseSearch"
