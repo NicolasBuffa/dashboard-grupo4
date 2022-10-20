@@ -29,7 +29,7 @@ describe('Render App Routes', () => {
         );
         let productsListComponents = await screen.findByText('Product List');
         expect(productsListComponents).toBeInTheDocument()
- 
+
     })
     it('ir a /products/new renderiza productsNew component', async () => {
         render(
@@ -67,4 +67,50 @@ describe('Render App Routes', () => {
         let cuatrocientosCuatro = screen.queryByText(/404/i);
         expect(cuatrocientosCuatro).toBeInTheDocument();
     })
+    it('ir a /* renderiza 404 component', () => {
+        render(
+            <MemoryRouter initialEntries={['/*']}>
+                <ThemeProvider>
+                    <AppRoutes />
+                </ThemeProvider>
+            </MemoryRouter>
+        )
+        let cuatrocientosCuatro = screen.queryByText(/404/i);
+        expect(cuatrocientosCuatro).toBeInTheDocument();
+    })
+    it('se renderiza un header', () => {
+        render(
+            <MemoryRouter>
+                <ThemeProvider>
+                    <AppRoutes />
+                </ThemeProvider>
+            </MemoryRouter>);
+        let header = screen.getByRole('banner');
+        expect(header).toBeInTheDocument();
+    });
+    it('se renderiza un componenete ademas de header', () => {
+        render(
+            <MemoryRouter>
+                <ThemeProvider>
+                    <AppRoutes />
+                </ThemeProvider>
+            </MemoryRouter>);
+            let header = screen.getByRole('banner')
+            let content = header.nextSibling
+            expect(content).toBeInTheDocument()
+
+
+    })
+    it('se renderiza header + 1 componente', () => {
+        render(
+            <MemoryRouter>
+                <ThemeProvider>
+                    <AppRoutes />
+                </ThemeProvider>
+            </MemoryRouter>);
+            let header = screen.getByRole('banner');
+            let parent = header.parentElement;
+            expect(parent.children.length).toEqual(2);
+    })
+
 });
